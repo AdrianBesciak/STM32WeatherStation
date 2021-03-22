@@ -292,7 +292,7 @@ typedef struct ip6_addr ip6_addr_t;
 #define IP6_ADDR_VALID        0x10 /* This bit marks an address as valid (preferred or deprecated) */
 #define IP6_ADDR_PREFERRED    0x30
 #define IP6_ADDR_DEPRECATED   0x10 /* Same as VALID (valid but not preferred) */
-#define IP6_ADDR_DUPLICATED   0x40 /* Failed DAD test, not valid */
+#define IP6_ADDR_DUPLICATED   0x40 /* Failed DAD Test, not valid */
 
 #define IP6_ADDR_TENTATIVE_COUNT_MASK 0x07 /* 1-7 probes sent */
 

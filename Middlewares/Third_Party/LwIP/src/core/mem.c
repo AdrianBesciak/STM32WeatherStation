@@ -889,7 +889,7 @@ mem_malloc(mem_size_t size_in)
          * mem->next - (ptr + SIZEOF_STRUCT_MEM) gives us the 'user data size' of mem */
 
         if (mem->next - (ptr + SIZEOF_STRUCT_MEM) >= (size + SIZEOF_STRUCT_MEM + MIN_SIZE_ALIGNED)) {
-          /* (in addition to the above, we test if another struct mem (SIZEOF_STRUCT_MEM) containing
+          /* (in addition to the above, we Test if another struct mem (SIZEOF_STRUCT_MEM) containing
            * at least MIN_SIZE_ALIGNED of data also fits in the 'user data space' of 'mem')
            * -> split large block, create empty remainder,
            * remainder must be large enough to contain MIN_SIZE_ALIGNED data: if

@@ -3489,7 +3489,7 @@
  */
 
 /**
- * LWIP_TESTMODE: Changes to make unit test possible
+ * LWIP_TESTMODE: Changes to make unit Test possible
  */
 #if !defined LWIP_TESTMODE
 #define LWIP_TESTMODE                   0

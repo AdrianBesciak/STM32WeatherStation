@@ -46,7 +46,7 @@ extern "C" {
  * message has been received and is ready for processing", bit 1 might mean "The
  * application has queued a message that is ready for sending onto the CAN
  * network", and bit 2 might mean "It is time to send a SYNC message onto the
- * CAN network" etc.  A task can then test the bit values to see which events
+ * CAN network" etc.  A task can then Test the bit values to see which events
  * are active, and optionally enter the Blocked state to wait for a specified
  * bit or a group of specified bits to be active.  To continue the CAN bus
  * example, a CAN controlling task can enter the Blocked state (and therefore
@@ -219,7 +219,7 @@ typedef TickType_t EventBits_t;
  * event group must have previously been created using a call to
  * xEventGroupCreate().
  *
- * @param uxBitsToWaitFor A bitwise value that indicates the bit or bits to test
+ * @param uxBitsToWaitFor A bitwise value that indicates the bit or bits to Test
  * inside the event group.  For example, to wait for bit 0 and/or bit 2 set
  * uxBitsToWaitFor to 0x05.  To wait for bits 0 and/or bit 1 and/or bit 2 set
  * uxBitsToWaitFor to 0x07.  Etc.
@@ -591,7 +591,7 @@ EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_
  * if, and possibly waiting for, all the bits specified by the uxBitsToWait
  * parameter are set.
  *
- * @param uxBitsToWaitFor A bitwise value that indicates the bit or bits to test
+ * @param uxBitsToWaitFor A bitwise value that indicates the bit or bits to Test
  * inside the event group.  For example, to wait for bit 0 and bit 2 set
  * uxBitsToWaitFor to 0x05.  To wait for bits 0 and bit 1 and bit 2 set
  * uxBitsToWaitFor to 0x07.  Etc.
@@ -659,7 +659,7 @@ EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_
 
 		// xEventGroupSync() was called with an indefinite block time, so
 		// this task will only reach here if the syncrhonisation was made by all
-		// three tasks, so there is no need to test the return value.
+		// three tasks, so there is no need to Test the return value.
 	 }
  }
 
@@ -678,7 +678,7 @@ EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup, const EventBits_
 
 		// xEventGroupSync() was called with an indefinite block time, so
 		// this task will only reach here if the syncrhonisation was made by all
-		// three tasks, so there is no need to test the return value.
+		// three tasks, so there is no need to Test the return value.
 	}
  }
 

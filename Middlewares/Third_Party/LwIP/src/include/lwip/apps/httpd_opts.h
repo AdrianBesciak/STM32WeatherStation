@@ -112,7 +112,7 @@
 /** Set this to 0 to prevent parsing the file extension at runtime to decide
  * if a file should be scanned for SSI tags or not.
  * Default is 1 (file extensions are checked using the g_pcSSIExtensions array)
- * Set to 2 to override this runtime test function.
+ * Set to 2 to override this runtime Test function.
  *
  * This is enabled by default, but if you only use a newer version of makefsdata
  * supporting the "-ssi" option, this info is already present in

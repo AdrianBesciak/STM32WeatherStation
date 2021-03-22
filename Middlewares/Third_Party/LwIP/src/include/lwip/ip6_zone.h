@@ -201,9 +201,9 @@ enum lwip_ipv6_scope_type
 
 /**
  * Test whether an IPv6 address is "zone-compatible" with a network interface.
- * That is, test whether the network interface is part of the zone associated
+ * That is, Test whether the network interface is part of the zone associated
  * with the address. For efficiency, this macro is only ever called if the
- * given address is either scoped or zoned, and thus, it need not test this.
+ * given address is either scoped or zoned, and thus, it need not Test this.
  * If an address is scoped but not zoned, or zoned and not scoped, it is
  * considered not zone-compatible with any netif.
  *

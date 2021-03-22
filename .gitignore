@@ -72,3 +72,5 @@ obj_app/
 obj_boot/
 obj_hv/
 obj/
+cmake-build-debug/
+.idea/

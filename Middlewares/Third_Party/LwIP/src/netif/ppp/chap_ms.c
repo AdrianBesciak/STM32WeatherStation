@@ -186,7 +186,7 @@ bool	ms_lanman = 0;    	/* Use LanMan password instead of NT */
 #if MPPE_SUPPORT
 #ifdef DEBUGMPPEKEY
 /* For MPPE debug */
-/* Use "[]|}{?/><,`!2&&(" (sans quotes) for RFC 3079 MS-CHAPv2 test value */
+/* Use "[]|}{?/><,`!2&&(" (sans quotes) for RFC 3079 MS-CHAPv2 Test value */
 static char *mschap_challenge = NULL;
 /* Use "!@\#$%^&*()_+:3|~" (sans quotes, backslash is to escape #) for ... */
 static char *mschap2_peer_challenge = NULL;
