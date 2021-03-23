@@ -24,6 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdio.h"
 
 /* USER CODE END Includes */
 
@@ -66,6 +67,14 @@ static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
+int _write(int file, char *ptr, int len)
+{
+    int DataIdx;
+
+    HAL_UART_Transmit(&huart1, ptr, len, 10);
+    return len;
+}
+
 
 /* USER CODE END PFP */
 
@@ -787,9 +796,9 @@ void StartDefaultTask(void *argument)
     for (;;) {
         main_cpp();
         char message[] = "Zyje\n\r";
-        HAL_UART_Transmit(&huart1, message, 6, 1000);
+        printf("Printf dziala\r\n");
 
-        osDelay(50);
+        osDelay(100);
     }
   /* USER CODE END 5 */
 }
