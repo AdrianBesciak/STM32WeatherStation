@@ -536,7 +536,7 @@ ip6_reass(struct pbuf *p)
     valid = 0;
   }
 
-  /* Final validity Test: no gaps between current and last fragment. */
+  /* Final validity test: no gaps between current and last fragment. */
   iprh_prev = iprh;
   q = iprh->next_pbuf;
   while ((q != NULL) && valid) {

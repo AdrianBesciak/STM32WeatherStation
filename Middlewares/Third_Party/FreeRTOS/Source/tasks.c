@@ -2704,7 +2704,7 @@ BaseType_t xSwitchRequired = pdFALSE;
 					/* The delayed list is empty.  Set xNextTaskUnblockTime
 					to the maximum possible value so it is extremely
 					unlikely that the
-					if( xTickCount >= xNextTaskUnblockTime ) Test will pass
+					if( xTickCount >= xNextTaskUnblockTime ) test will pass
 					next time through. */
 					xNextTaskUnblockTime = portMAX_DELAY; /*lint !e961 MISRA exception as the casts are only redundant for some ports. */
 					break;
@@ -3405,7 +3405,7 @@ static portTASK_FUNCTION( prvIdleTask, pvParameters )
 
 			/* It is not desirable to suspend then resume the scheduler on
 			each iteration of the idle task.  Therefore, a preliminary
-			Test of the expected idle time is performed without the
+			test of the expected idle time is performed without the
 			scheduler suspended.  The result here is not necessarily
 			valid. */
 			xExpectedIdleTime = prvGetExpectedIdleTime();
@@ -3885,7 +3885,7 @@ TCB_t *pxTCB;
 	{
 		/* The new current delayed list is empty.  Set xNextTaskUnblockTime to
 		the maximum possible value so it is	extremely unlikely that the
-		if( xTickCount >= xNextTaskUnblockTime ) Test will pass until
+		if( xTickCount >= xNextTaskUnblockTime ) test will pass until
 		there is an item in the delayed list. */
 		xNextTaskUnblockTime = portMAX_DELAY;
 	}

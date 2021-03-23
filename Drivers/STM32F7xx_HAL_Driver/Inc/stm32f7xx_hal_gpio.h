@@ -101,7 +101,7 @@ typedef enum
 #define GPIO_PIN_15                ((uint16_t)0x8000U)  /* Pin 15 selected   */
 #define GPIO_PIN_All               ((uint16_t)0xFFFFU)  /* All pins selected */
 
-#define GPIO_PIN_MASK              ((uint32_t)0x0000FFFFU) /* PIN mask for assert Test */
+#define GPIO_PIN_MASK              ((uint32_t)0x0000FFFFU) /* PIN mask for assert test */
 /**
   * @}
   */

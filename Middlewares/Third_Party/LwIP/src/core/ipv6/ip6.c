@@ -473,7 +473,7 @@ ip6_input_accept(struct netif *netif)
     u8_t i;
     /* unicast to this interface address? address configured? */
     /* If custom scopes are used, the destination zone will be tested as
-      * part of the local-address comparison, but we need to Test the source
+      * part of the local-address comparison, but we need to test the source
       * scope as well (e.g., is this interface on the same link?). */
     for (i = 0; i < LWIP_IPV6_NUM_ADDRESSES; i++) {
       if (ip6_addr_isvalid(netif_ip6_addr_state(netif, i)) &&

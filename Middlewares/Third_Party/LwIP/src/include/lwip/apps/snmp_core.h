@@ -320,7 +320,7 @@ u8_t snmp_oid_to_ip_port(const u32_t *oid, u8_t oid_len, ip_addr_t *ip, u16_t *p
 struct netif;
 u8_t netif_to_num(const struct netif *netif);
 
-snmp_err_t snmp_set_test_ok(struct snmp_node_instance* instance, u16_t value_len, void* value); /* generic function which can be used if Test is always successful */
+snmp_err_t snmp_set_test_ok(struct snmp_node_instance* instance, u16_t value_len, void* value); /* generic function which can be used if test is always successful */
 
 err_t snmp_decode_bits(const u8_t *buf, u32_t buf_len, u32_t *bit_value);
 err_t snmp_decode_truthvalue(const s32_t *asn1_value, u8_t *bool_value);

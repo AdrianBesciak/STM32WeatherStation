@@ -210,7 +210,7 @@ tcpip_thread_handle_msg(struct tcpip_msg *msg)
 }
 
 #ifdef TCPIP_THREAD_TEST
-/** Work on queued items in single-threaded Test mode */
+/** Work on queued items in single-threaded test mode */
 int
 tcpip_thread_poll_one(void)
 {

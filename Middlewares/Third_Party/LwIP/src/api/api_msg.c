@@ -497,7 +497,7 @@ err_tcp(void *arg, err_t err)
       /* wake up the waiting task */
       sys_sem_signal(op_completed_sem);
     } else {
-      /* @todo: Test what happens for error on nonblocking connect */
+      /* @todo: test what happens for error on nonblocking connect */
     }
   } else {
     LWIP_ASSERT("conn->current_msg == NULL", conn->current_msg == NULL);

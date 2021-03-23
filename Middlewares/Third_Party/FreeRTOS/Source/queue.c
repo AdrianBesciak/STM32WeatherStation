@@ -605,7 +605,7 @@ static void prvInitialiseNewQueue( const UBaseType_t uxQueueLength, const UBaseT
 		pxMutexHolder can never coincidentally equal the tasks handle, and as
 		this is the only condition we are interested in it does not matter if
 		pxMutexHolder is accessed simultaneously by another task.  Therefore no
-		mutual exclusion is required to Test the pxMutexHolder variable. */
+		mutual exclusion is required to test the pxMutexHolder variable. */
 		if( pxMutex->u.xSemaphore.xMutexHolder == xTaskGetCurrentTaskHandle() )
 		{
 			traceGIVE_MUTEX_RECURSIVE( pxMutex );
@@ -1597,7 +1597,7 @@ Queue_t * const pxQueue = xQueue;
 				{
 					/* xInheritanceOccurred could only have be set if
 					pxQueue->uxQueueType == queueQUEUE_IS_MUTEX so no need to
-					Test the mutex type again to check it is actually a mutex. */
+					test the mutex type again to check it is actually a mutex. */
 					if( xInheritanceOccurred != pdFALSE )
 					{
 						taskENTER_CRITICAL();

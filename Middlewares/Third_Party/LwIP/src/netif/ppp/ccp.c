@@ -646,7 +646,7 @@ static void ccp_resetci(fsm *f) {
      * compression methods we might request.
      */
 #if BSDCOMPRESS_SUPPORT
-    /* FIXME: we don't need to Test if BSD compress is available
+    /* FIXME: we don't need to test if BSD compress is available
      * if BSDCOMPRESS_SUPPORT is set, it is.
      */
     if (go->bsd_compress) {
@@ -670,7 +670,7 @@ static void ccp_resetci(fsm *f) {
     }
 #endif /* BSDCOMPRESS_SUPPORT */
 #if DEFLATE_SUPPORT
-    /* FIXME: we don't need to Test if deflate is available
+    /* FIXME: we don't need to test if deflate is available
      * if DEFLATE_SUPPORT is set, it is.
      */
     if (go->deflate) {
@@ -719,7 +719,7 @@ static void ccp_resetci(fsm *f) {
     }
 #endif /* DEFLATE_SUPPORT */
 #if PREDICTOR_SUPPORT
-    /* FIXME: we don't need to Test if predictor is available,
+    /* FIXME: we don't need to test if predictor is available,
      * if PREDICTOR_SUPPORT is set, it is.
      */
     if (go->predictor_1) {
@@ -1247,7 +1247,7 @@ static int ccp_reqci(fsm *f, u_char *p, int *lenp, int dont_nak) {
 		    if (!dont_nak) {
 			p[2] = DEFLATE_MAKE_OPT(ao->deflate_size);
 			p[3] = DEFLATE_CHK_SEQUENCE;
-			/* fall through to Test this #bits below */
+			/* fall through to test this #bits below */
 		    } else
 			break;
 		}
@@ -1289,7 +1289,7 @@ static int ccp_reqci(fsm *f, u_char *p, int *lenp, int dont_nak) {
 		    newret = CONFNAK;
 		    if (!dont_nak) {
 			p[2] = BSD_MAKE_OPT(BSD_CURRENT_VERSION, ao->bsd_bits);
-			/* fall through to Test this #bits below */
+			/* fall through to test this #bits below */
 		    } else
 			break;
 		}
