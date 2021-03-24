@@ -74,3 +74,4 @@ obj_hv/
 obj/
 cmake-build-debug/
 .idea/
+Debug/
