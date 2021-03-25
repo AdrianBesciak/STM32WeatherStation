@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdio.h"
+#include "ansi.h"
 
 /* USER CODE END Includes */
 
@@ -52,7 +53,7 @@ UART_HandleTypeDef huart1;
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
   .name = "defaultTask",
-  .stack_size = 128 * 4,
+  .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
@@ -67,15 +68,6 @@ static void MX_USART1_UART_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
-int _write(int file, char *ptr, int len)
-{
-    int DataIdx;
-
-    HAL_UART_Transmit(&huart1, ptr, len, 10);
-    return len;
-}
-
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -114,6 +106,8 @@ int main(void)
   MX_I2C1_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
+
+    printf(ANSI_FG_GREEN "Started!" ANSI_FG_DEFAULT "\n");
 
   /* USER CODE END 2 */
 
@@ -785,6 +779,7 @@ static void MX_GPIO_Init(void)
   * @param  argument: Not used
   * @retval None
   */
+__attribute__((noreturn))
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
 {
@@ -793,12 +788,15 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
     /* Infinite loop */
 
-    for (;;) {
-        main_cpp();
-        char message[] = "Zyje\n\r";
-        printf("Printf dziala\r\n");
+    int test = 5;
 
-        osDelay(100);
+    for (;;) {
+        long start = xTaskGetTickCount();
+        main_cpp();
+
+        printf("%0.2f %p %ld\n", 11.11, &test, start);
+
+        osDelay(500);
     }
   /* USER CODE END 5 */
 }

@@ -75,3 +75,4 @@ obj/
 cmake-build-debug/
 .idea/
 Debug/
+.settings/
