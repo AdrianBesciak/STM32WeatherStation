@@ -25,7 +25,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ds18b20.h"
-#include "ds18b20_task.h"
 #include "ansi.h"
 
 /* USER CODE END Includes */
