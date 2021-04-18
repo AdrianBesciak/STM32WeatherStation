@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdio.h"
+#include "ds18b20_task.h"
 #include "ansi.h"
 
 /* USER CODE END Includes */
@@ -58,6 +58,8 @@ const osThreadAttr_t defaultTask_attributes = {
 };
 /* USER CODE BEGIN PV */
 
+xTaskHandle ds18b20_task;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,7 +74,6 @@ void StartDefaultTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-extern void main_cpp();
 /* USER CODE END 0 */
 
 /**
@@ -135,6 +136,19 @@ int main(void)
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
+    BaseType_t ret = xTaskCreate(
+                v_ds19b20_task,
+                "ds18b20_task",
+                512,
+                NULL,
+                5,
+                &ds18b20_task
+            );
+
+    if(ret != pdPASS){
+        printf("Cannot create v_ds18b20_task: %ld\n", ret);
+    }
+
     /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
@@ -331,6 +345,9 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOG, ARDUINO_D4_Pin|ARDUINO_D2_Pin|EXT_RST_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(DS18B20_PIN_GPIO_Port, DS18B20_PIN_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : LCD_B0_Pin */
   GPIO_InitStruct.Pin = LCD_B0_Pin;
@@ -675,13 +692,18 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOG, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : ARDUINO_A4_Pin ARDUINO_A5_Pin ARDUINO_A1_Pin ARDUINO_A2_Pin
-                           ARDUINO_A3_Pin */
-  GPIO_InitStruct.Pin = ARDUINO_A4_Pin|ARDUINO_A5_Pin|ARDUINO_A1_Pin|ARDUINO_A2_Pin
-                          |ARDUINO_A3_Pin;
+  /*Configure GPIO pins : ARDUINO_A4_Pin ARDUINO_A5_Pin ARDUINO_A2_Pin ARDUINO_A3_Pin */
+  GPIO_InitStruct.Pin = ARDUINO_A4_Pin|ARDUINO_A5_Pin|ARDUINO_A2_Pin|ARDUINO_A3_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : DS18B20_PIN_Pin */
+  GPIO_InitStruct.Pin = DS18B20_PIN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(DS18B20_PIN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : FMC_SDCKE0_Pin */
   GPIO_InitStruct.Pin = FMC_SDCKE0_Pin;
@@ -788,14 +810,7 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN 5 */
     /* Infinite loop */
 
-    int test = 5;
-
     for (;;) {
-        long start = xTaskGetTickCount();
-        main_cpp();
-
-        printf("%0.2f %p %ld\n", 11.11, &test, start);
-
         osDelay(500);
     }
   /* USER CODE END 5 */
