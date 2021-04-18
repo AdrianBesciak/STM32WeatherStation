@@ -24,6 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "ds18b20.h"
 #include "ds18b20_task.h"
 #include "ansi.h"
 
@@ -47,6 +48,8 @@
 
 I2C_HandleTypeDef hi2c1;
 
+TIM_HandleTypeDef htim13;
+
 UART_HandleTypeDef huart1;
 
 /* Definitions for defaultTask */
@@ -67,6 +70,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_TIM13_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -106,6 +110,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   MX_USART1_UART_Init();
+  MX_TIM13_Init();
   /* USER CODE BEGIN 2 */
 
     printf(ANSI_FG_GREEN "Started!" ANSI_FG_DEFAULT "\n");
@@ -136,18 +141,19 @@ int main(void)
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
-    BaseType_t ret = xTaskCreate(
-                v_ds19b20_task,
-                "ds18b20_task",
-                512,
-                NULL,
-                5,
-                &ds18b20_task
-            );
+//    BaseType_t ret = xTaskCreate(
+//            v_ds19b20_task,
+//            "ds18b20_task",
+//            512,
+//            NULL,
+//            5,
+//            &ds18b20_task
+//    );
 
-    if(ret != pdPASS){
-        printf("Cannot create v_ds18b20_task: %ld\n", ret);
-    }
+//    if (ret != pdPASS) {
+//        printf("Cannot create v_ds18b20_task: %ld\n", ret);
+//    }
+    Ds18b20_Init(osPriorityNormal);
 
     /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -271,6 +277,37 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief TIM13 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM13_Init(void)
+{
+
+  /* USER CODE BEGIN TIM13_Init 0 */
+
+  /* USER CODE END TIM13_Init 0 */
+
+  /* USER CODE BEGIN TIM13_Init 1 */
+
+  /* USER CODE END TIM13_Init 1 */
+  htim13.Instance = TIM13;
+  htim13.Init.Prescaler = 215;
+  htim13.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim13.Init.Period = 65535;
+  htim13.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim13.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim13) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM13_Init 2 */
+
+  /* USER CODE END TIM13_Init 2 */
 
 }
 
