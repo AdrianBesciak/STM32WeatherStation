@@ -54,11 +54,11 @@ else ()
     add_compile_options(-Og -g)
 endif ()
 
-include_directories(${includes})
+include_directories(${includes} Modules/include)
 
 add_definitions(${defines})
 
-file(GLOB_RECURSE SOURCES ${sources})
+file(GLOB_RECURSE SOURCES ${sources} "Modules/*.*")
 
 set(LINKER_SCRIPT $${CMAKE_SOURCE_DIR}/STM32F746NGHX_FLASH.ld)
 
@@ -71,8 +71,10 @@ add_executable($${PROJECT_NAME}.elf $${SOURCES} $${LINKER_SCRIPT})
 set(HEX_FILE $${PROJECT_BINARY_DIR}/$${PROJECT_NAME}.hex)
 set(BIN_FILE $${PROJECT_BINARY_DIR}/$${PROJECT_NAME}.bin)
 
-add_custom_command(TARGET $${PROJECT_NAME}.elf POST_BUILD
+add_custom_command(
+        TARGET $${PROJECT_NAME}.elf POST_BUILD
         COMMAND $${CMAKE_OBJCOPY} -Oihex $<TARGET_FILE:$${PROJECT_NAME}.elf> $${HEX_FILE}
         COMMAND $${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:$${PROJECT_NAME}.elf> $${BIN_FILE}
         COMMENT "Building $${HEX_FILE}
-Building $${BIN_FILE}")
+        Building $${BIN_FILE}"
+)

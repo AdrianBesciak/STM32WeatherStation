@@ -17,7 +17,7 @@
  * |----------------------------------------------------------------------
  */
 #include "onewire.h"
-#include "ds18b20Config.h"
+#include "../../Modules/include/ds18b20Config.h"
 
 extern TIM_HandleTypeDef _DS18B20_TIMER;
 

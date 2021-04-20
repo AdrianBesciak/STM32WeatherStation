@@ -24,7 +24,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "ds18b20.h"
+#include "../../Modules/include/lib_ds18b20.h"
 #include "ansi.h"
 
 /* USER CODE END Includes */
@@ -59,8 +59,6 @@ const osThreadAttr_t defaultTask_attributes = {
   .priority = (osPriority_t) osPriorityNormal,
 };
 /* USER CODE BEGIN PV */
-
-xTaskHandle ds18b20_task;
 
 /* USER CODE END PV */
 
@@ -112,7 +110,6 @@ int main(void)
   MX_TIM13_Init();
   /* USER CODE BEGIN 2 */
 
-    printf(ANSI_FG_GREEN "Started!" ANSI_FG_DEFAULT "\n");
 
   /* USER CODE END 2 */
 
@@ -140,19 +137,9 @@ int main(void)
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
-//    BaseType_t ret = xTaskCreate(
-//            v_ds19b20_task,
-//            "ds18b20_task",
-//            512,
-//            NULL,
-//            5,
-//            &ds18b20_task
-//    );
+    puts(ANSI_FG_GREEN "[FreeRTOS]" ANSI_FG_DEFAULT " initialized!");
 
-//    if (ret != pdPASS) {
-//        printf("Cannot create v_ds18b20_task: %ld\n", ret);
-//    }
-    Ds18b20_Init(osPriorityNormal);
+    Ds18b20_Init();
 
     /* add threads, ... */
   /* USER CODE END RTOS_THREADS */

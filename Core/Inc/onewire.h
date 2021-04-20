@@ -1,6 +1,4 @@
-
-#ifndef ONEWIRE_H
-#define ONEWIRE_H
+#pragma once
 
 /* C++ detection */
 #ifdef __cplusplus
@@ -9,12 +7,8 @@ extern "C" {
 
 #include <stm32f7xx_hal.h>
 
-#if (_DS18B20_USE_FREERTOS==1)
 #include "cmsis_os.h"
 #define	OneWireDelay(x)			osDelay(x)
-#else
-#define	OneWireDelay(x)			HAL_Delay(x)
-#endif
 
 
 typedef struct {
@@ -66,7 +60,5 @@ uint8_t OneWire_CRC8(uint8_t* addr, uint8_t len);
 /* C++ detection */
 #ifdef __cplusplus
 }
-#endif
-
 #endif
 
