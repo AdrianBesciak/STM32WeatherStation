@@ -25,7 +25,7 @@ public:
 	}
 
 	[[nodiscard]] float getTemperature() const {
-		return temperature_;
+		return temperature_ - 4.0;
 	}
 
 	void setTemperature(float temperature);

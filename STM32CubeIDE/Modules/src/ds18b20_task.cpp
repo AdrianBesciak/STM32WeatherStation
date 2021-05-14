@@ -7,7 +7,7 @@ std::tuple<uint8_t, OneWire_t> find_termometers(){
     OneWire_t OneWire;
     uint8_t sensorCount;
 
-    uint8_t tries = 10;
+    uint8_t tries = 5;
     do {
         OneWire_Init(&OneWire, _DS18B20_GPIO, _DS18B20_PIN);
         sensorCount = 0;
@@ -15,12 +15,15 @@ std::tuple<uint8_t, OneWire_t> find_termometers(){
         while (HAL_GetTick() < 3000)
             Ds18b20Delay(100);
 
+        //INFO: remove disabling IRQ's if problematic
+        __disable_irq();
         uint8_t device = OneWire_First(&OneWire);
         while (device) {
             Ds18b20Delay(100);
             OneWire_GetFullROM(&OneWire, thermometers[sensorCount++].getAddress());
             device = OneWire_Next(&OneWire);
         }
+        __enable_irq();
 
         if (sensorCount > 0)
             break;
@@ -49,7 +52,6 @@ void setup_termometers(uint8_t sensorCount, OneWire_t& OneWire) {
 extern "C"
 [[noreturn]]
 void Task_Ds18b20(void *argument) {
-	Ds18b20Delay(1000);
     auto&& [sensorCount, OneWire] = find_termometers();
     printf(ANSI_FG_GREEN "[Thermometers] " ANSI_FG_DEFAULT "Thermometers found: %d\n", sensorCount);
     setup_termometers(sensorCount, OneWire);
@@ -71,7 +73,10 @@ void Task_Ds18b20(void *argument) {
             for(auto& t: thermometers) {
                 Ds18b20Delay(1000);
 
+                //INFO: remove disabling IRQ's if problematic
+                __disable_irq();
                 auto invalid = DS18B20_Read(&OneWire, t.getAddress(), &temperature);
+                __enable_irq();
                 if(!invalid){
                     t.setTemperature(temperature);
                     printf("Thermometer:" ANSI_FG_YELLOW " %0.2f*C" ANSI_FG_DEFAULT "\n", t.getTemperature());
