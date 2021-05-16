@@ -11,6 +11,7 @@ public:
     virtual ~MainViewView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
+    virtual void updateTemperatureText(float temp);
 protected:
 };
 

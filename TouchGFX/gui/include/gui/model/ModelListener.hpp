@@ -14,6 +14,8 @@ public:
     {
         model = m;
     }
+
+    virtual void temperatureChanged(float temp) {};
 protected:
     Model* model;
 };

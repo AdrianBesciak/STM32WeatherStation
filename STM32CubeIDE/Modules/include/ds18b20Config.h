@@ -7,7 +7,7 @@
 #define    _DS18B20_PIN                         DS18B20_PIN_Pin
 
 #define    _DS18B20_CONVERT_TIMEOUT_MS          5000
-#define    _DS18B20_UPDATE_INTERVAL_MS          3000
+#define    _DS18B20_UPDATE_INTERVAL_MS          1000
 
 #define    _DS18B20_TIMER                       htim13
 

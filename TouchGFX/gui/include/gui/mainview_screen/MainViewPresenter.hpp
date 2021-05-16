@@ -25,6 +25,8 @@ public:
      */
     virtual void deactivate();
 
+    virtual void temperatureChanged(float temp);
+
     virtual ~MainViewPresenter() {};
 
 private:

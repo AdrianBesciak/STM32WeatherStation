@@ -17,8 +17,6 @@ void Ds18b20_Init() {
 
     if(ret != pdPASS){
         puts(ANSI_FG_RED "[Thermometers]" ANSI_FG_DEFAULT " failed!");
-    }else{
-        puts(ANSI_FG_GREEN "[Thermometers]" ANSI_FG_DEFAULT " task created!");
     }
 }
 
