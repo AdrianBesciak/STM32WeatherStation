@@ -1,18 +1,17 @@
-#ifndef POOLTEMP_PRESENTER_HPP
-#define POOLTEMP_PRESENTER_HPP
+#ifndef MAINVIEWPRESENTER_HPP
+#define MAINVIEWPRESENTER_HPP
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
 
 using namespace touchgfx;
 
-class PoolTempView;
+class MainViewView;
 
-class PoolTempPresenter : public Presenter, public ModelListener
+class MainViewPresenter : public touchgfx::Presenter, public ModelListener
 {
 public:
-    PoolTempPresenter(PoolTempView& v);
-    virtual ~PoolTempPresenter() {};
+    MainViewPresenter(MainViewView& v);
 
     /**
      * The activate function is called automatically when this screen is "switched in"
@@ -26,10 +25,12 @@ public:
      */
     virtual void deactivate();
 
-private:
-    PoolTempPresenter();
+    virtual ~MainViewPresenter() {};
 
-    PoolTempView& view;
+private:
+    MainViewPresenter();
+
+    MainViewView& view;
 };
 
-#endif // POOLTEMP_PRESENTER_HPP
+#endif // MAINVIEWPRESENTER_HPP

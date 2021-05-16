@@ -80,8 +80,6 @@ void Task_Ds18b20(void *argument) {
                 if(!invalid){
                     t.setTemperature(temperature);
                     printf("Thermometer:" ANSI_FG_YELLOW " %0.2f*C" ANSI_FG_DEFAULT "\n", t.getTemperature());
-                }else{
-                	printf("Invalid read %d\n", invalid);
                 }
             }
         }

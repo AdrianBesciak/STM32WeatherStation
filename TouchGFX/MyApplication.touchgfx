@@ -4,10 +4,189 @@
       {
         "Components": [
           {
-            "Type": "Image",
-            "RelativeFilename": "settings_background.png",
-            "Alpha": 255,
-            "Name": "image1",
+            "Components": [
+              {
+                "Components": [
+                  {
+                    "Type": "Image",
+                    "RelativeFilename": "bgLeft.png",
+                    "Alpha": 255,
+                    "Name": "bgLeft",
+                    "X": 0,
+                    "Y": 0,
+                    "Width": 480,
+                    "Height": 272,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  }
+                ],
+                "Type": "Container",
+                "IsCacheableContainer": false,
+                "Name": "leftScreen",
+                "X": 0,
+                "Y": 0,
+                "Width": 480,
+                "Height": 272,
+                "Visible": true,
+                "LockPosition": false,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Components": [
+                  {
+                    "Type": "Image",
+                    "RelativeFilename": "bgCenter.png",
+                    "Alpha": 255,
+                    "Name": "bgCenter",
+                    "X": 0,
+                    "Y": 0,
+                    "Width": 480,
+                    "Height": 272,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  }
+                ],
+                "Type": "Container",
+                "IsCacheableContainer": false,
+                "Name": "centerScreen",
+                "X": 0,
+                "Y": 0,
+                "Width": 480,
+                "Height": 272,
+                "Visible": true,
+                "LockPosition": false,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              },
+              {
+                "Components": [
+                  {
+                    "Type": "Image",
+                    "RelativeFilename": "bgRight.png",
+                    "Alpha": 255,
+                    "Name": "bgRight",
+                    "X": 0,
+                    "Y": 0,
+                    "Width": 480,
+                    "Height": 272,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "ScalableImage",
+                    "Filename": "Temperature-icon.png",
+                    "Alpha": 255,
+                    "ScalingAlgorithm": "Nearest-neighbor",
+                    "Name": "scalableImage1",
+                    "X": 16,
+                    "Y": 7,
+                    "Width": 109,
+                    "Height": 113,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "SingleUseId3",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": true,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "TextId": "SingleUseId4",
+                      "UseBuffer": true,
+                      "BufferSize": 64
+                    },
+                    "Name": "currentTempValue",
+                    "X": 188,
+                    "Y": 48,
+                    "Width": 201,
+                    "Height": 30,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "SingleUseId1",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": true,
+                    "LineSpacing": 0,
+                    "Name": "currentTempText",
+                    "X": 125,
+                    "Y": 7,
+                    "Width": 326,
+                    "Height": 30,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  }
+                ],
+                "Type": "Container",
+                "IsCacheableContainer": false,
+                "Name": "rightScreen",
+                "X": 0,
+                "Y": 0,
+                "Width": 480,
+                "Height": 272,
+                "Visible": true,
+                "LockPosition": false,
+                "Draggable": false,
+                "Clickable": false,
+                "Fadeable": false,
+                "Moveable": false
+              }
+            ],
+            "Type": "SwipeContainer",
+            "SwipeCutoff": 50,
+            "ShowPageIndicator": true,
+            "PageIndicatorX": 218,
+            "PageIndicatorY": 251,
+            "CenteredX": true,
+            "IndicatorImageNormal": "__designer\\Blue_PageIndicator_dot_indicator_small_normal.png",
+            "IndicatorImageHighlight": "__designer\\Blue_PageIndicator_dot_indicator_small_highlight.png",
+            "EndSwipeElasticWidth": 0,
+            "SelectedPage": "centerScreen",
+            "Style": "Style1",
+            "Name": "swipeContainer1",
             "X": 0,
             "Y": 0,
             "Width": 480,
@@ -18,94 +197,10 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
-          },
-          {
-            "Type": "TextArea",
-            "TextId": "TextId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Alpha": 255,
-            "AutoSize": false,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId1",
-              "UseBuffer": true,
-              "BufferSize": 32
-            },
-            "Name": "tempText",
-            "X": 281,
-            "Y": 113,
-            "Width": 172,
-            "Height": 46,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "Button",
-            "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
-            "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
-            "Alpha": 255,
-            "Style": "Style4",
-            "Name": "button1",
-            "X": 162,
-            "Y": 200,
-            "Width": 170,
-            "Height": 60,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
-          },
-          {
-            "Type": "TextArea",
-            "TextId": "SingleUseId2",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 251,
-              "Green": 251,
-              "Blue": 251
-            },
-            "Alpha": 255,
-            "AutoSize": true,
-            "LineSpacing": 0,
-            "Name": "textArea1",
-            "X": 193,
-            "Y": 218,
-            "Width": 109,
-            "Height": 25,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
           }
         ],
-        "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "HasCompletedTrigger": false,
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "button1"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "refreshTemperature"
-            }
-          }
-        ],
-        "Name": "PoolTemp",
+        "Interactions": [],
+        "Name": "MainView",
         "OverrideDefaultBufferSize": false,
         "CanvasBufferSize": 0
       }
@@ -113,19 +208,15 @@
     "CustomContainerDefinitions": [],
     "TextEntries": [
       {
-        "TextEntryId": "TextId1",
-        "IsResource": true
-      },
-      {
-        "TextEntryId": "TextId2",
-        "IsResource": true
-      },
-      {
         "TextEntryId": "SingleUseId1",
         "IsResource": false
       },
       {
-        "TextEntryId": "SingleUseId2",
+        "TextEntryId": "SingleUseId3",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId4",
         "IsResource": false
       }
     ],
@@ -135,7 +226,7 @@
       "Height": 272
     },
     "SelectedColorDepth": 16,
-    "StartupScreenName": "PoolTemp",
+    "StartupScreenName": "MainView",
     "SelectedStartupLanguage": "GB",
     "Skin": "Blue",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",

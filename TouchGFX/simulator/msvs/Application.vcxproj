@@ -20,9 +20,9 @@
     <ClCompile Include="..\..\gui\src\common\FrontendApplication.cpp"/>
     <ClCompile Include="..\..\generated\gui_generated\src\common\FrontendApplicationBase.cpp"/>
     <ClCompile Include="..\..\gui\src\model\Model.cpp"/>
-    <ClCompile Include="..\..\gui\src\pooltemp_screen\PoolTempPresenter.cpp"/>
-    <ClCompile Include="..\..\gui\src\pooltemp_screen\PoolTempView.cpp"/>
-    <ClCompile Include="..\..\generated\gui_generated\src\pooltemp_screen\PoolTempViewBase.cpp"/>
+    <ClCompile Include="..\..\gui\src\mainview_screen\MainViewPresenter.cpp"/>
+    <ClCompile Include="..\..\gui\src\mainview_screen\MainViewView.cpp"/>
+    <ClCompile Include="..\..\generated\gui_generated\src\mainview_screen\MainViewViewBase.cpp"/>
   </ItemGroup>
   <ItemGroup>
     <None Include="$(ApplicationRoot)\assets\texts\texts.xlsx"/>
@@ -169,10 +169,10 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\FrontendHeapBase.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\model\Model.hpp"/>
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\pooltemp_screen\PoolTempPresenter.hpp"/>
-    <ClInclude Include="..\..\gui\include\gui\pooltemp_screen\PoolTempView.hpp"/>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\pooltemp_screen\PoolTempViewBase.hpp"/>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\mainview_screen\MainViewPresenter.hpp"/>
+    <ClInclude Include="..\..\gui\include\gui\mainview_screen\MainViewView.hpp"/>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\mainview_screen\MainViewViewBase.hpp"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(ApplicationRoot)\generated\simulator\touchgfx.rc"/>

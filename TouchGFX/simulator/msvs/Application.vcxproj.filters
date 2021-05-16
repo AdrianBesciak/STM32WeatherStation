@@ -151,26 +151,26 @@
     <Filter Include="Source Files\generated\gui_generated">
       <UniqueIdentifier>1512162A-15D1-0236-266E-637DDEF5FBA0</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\pooltemp_screen">
-      <UniqueIdentifier>6FD2388D-D3EF-0B06-E70B-719E4C75896B</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\gui\pooltemp_screen">
-      <UniqueIdentifier>61BE9D90-2FA7-0826-83C6-4B70B1EFAF23</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\gui\common">
       <UniqueIdentifier>403E54DC-9799-4437-0E68-2380D1400E35</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\generated\gui_generated\common">
       <UniqueIdentifier>98F9D32E-0385-5751-9357-094FDED38AB1</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\generated\gui_generated\pooltemp_screen">
-      <UniqueIdentifier>603640D3-2841-EC6F-5CA3-ECBA9E211FFA</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\generated\gui_generated\common">
       <UniqueIdentifier>6528B3D7-CB39-6790-9589-703EA2400EE4</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\generated\gui_generated\pooltemp_screen">
-      <UniqueIdentifier>CA439529-FDD7-7F34-B0DE-830035260BAC</UniqueIdentifier>
+    <Filter Include="Header Files\gui\mainview_screen">
+      <UniqueIdentifier>D6B46DFA-DFC9-EB9E-B1AD-C174E3D73DC0</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\mainview_screen">
+      <UniqueIdentifier>3D126788-5055-D7AB-06F7-080604CB6C3E</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\mainview_screen">
+      <UniqueIdentifier>A9FB125C-9981-CE01-3186-767B4FB96C36</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\mainview_screen">
+      <UniqueIdentifier>69B4D125-8883-F2FF-3DA6-0C879CD29C62</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,14 +201,14 @@
     <ClCompile Include="..\..\gui\src\model\Model.cpp">
       <Filter>Source Files\gui\model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\pooltemp_screen\PoolTempPresenter.cpp">
-      <Filter>Source Files\gui\pooltemp_screen</Filter>
+    <ClCompile Include="..\..\gui\src\mainview_screen\MainViewPresenter.cpp">
+      <Filter>Source Files\gui\mainview_screen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\pooltemp_screen\PoolTempView.cpp">
-      <Filter>Source Files\gui\pooltemp_screen</Filter>
+    <ClCompile Include="..\..\gui\src\mainview_screen\MainViewView.cpp">
+      <Filter>Source Files\gui\mainview_screen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\pooltemp_screen\PoolTempViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\pooltemp_screen</Filter>
+    <ClCompile Include="..\..\generated\gui_generated\src\mainview_screen\MainViewViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\mainview_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -640,17 +640,17 @@
     <ClInclude Include="..\..\gui\include\gui\model\ModelListener.hpp">
       <Filter>Header Files\gui\model</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\pooltemp_screen\PoolTempPresenter.hpp">
-      <Filter>Header Files\gui\pooltemp_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\pooltemp_screen\PoolTempView.hpp">
-      <Filter>Header Files\gui\pooltemp_screen</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\pooltemp_screen\PoolTempViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\pooltemp_screen</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp">
       <Filter>Header Files\generated\gui_generated\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\mainview_screen\MainViewPresenter.hpp">
+      <Filter>Header Files\gui\mainview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\mainview_screen\MainViewView.hpp">
+      <Filter>Header Files\gui\mainview_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\mainview_screen\MainViewViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\mainview_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
