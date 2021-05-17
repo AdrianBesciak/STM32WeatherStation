@@ -6,8 +6,6 @@
 #include <ansi.h>
 #include <ds18b20Config.h>
 
-#include "FreeRTOS.h"
-
 class Ds18b20;
 extern std::array<Ds18b20, _DS18B20_MAX_SENSORS> thermometers;
 
