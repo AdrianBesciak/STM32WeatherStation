@@ -14,9 +14,19 @@ extern "C" {
 #include "cmsis_os.h"
 
 
-typedef struct ethernetInitArguments {
-	//UART_HandleTypeDef * huart;
-} ethernetInitArguments;
+typedef struct weather_t {
+	char * temp; //temperature in celsius
+	char * weatherMainName;
+	char * weatherDescription;
+	char * pressure;
+	char * humidity;
+	char * visibility;
+	char * windSpeed;
+	char * rainAmount;
+	char * city;
+} weather_t;
+
+extern weather_t weatherForecast;
 
 void internetConnectionThread(void const * arguments);
 
