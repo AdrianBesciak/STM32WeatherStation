@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
+#include "lwip.h"
 #include "app_touchgfx.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -28,6 +29,8 @@
 #include <stdio.h>
 #include "ansi.h"
 #include <lib_ds18b20.h>
+#include <task.h>
+#include <ethernet.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,6 +89,7 @@ const osThreadAttr_t TouchGFXTask_attributes = {
   .stack_size = 4096 * 4
 };
 /* USER CODE BEGIN PV */
+
 static FMC_SDRAM_CommandTypeDef Command;
 /* USER CODE END PV */
 
@@ -189,6 +193,14 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   Ds18b20_Init();
+  BaseType_t internetConnectionTask = xTaskCreate(internetConnectionThread, "internetConnectionTask", 400, NULL, tskIDLE_PRIORITY, NULL);
+  if (internetConnectionTask == pdPASS)
+	  printf("Succesfully created InternetConnectionTask\n");
+  else if (internetConnectionTask == errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY)
+	  printf("Allocation memory error during creating internetConnectionTask\n");
+  else
+	  printf("Error creating internetConnectionTask\n");
+
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -665,9 +677,9 @@ static void MX_GPIO_Init(void)
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOE_CLK_ENABLE();
+  __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
-  __HAL_RCC_GPIOG_CLK_ENABLE();
   __HAL_RCC_GPIOJ_CLK_ENABLE();
   __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOK_CLK_ENABLE();
@@ -721,6 +733,8 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_TouchGFX_Task */
 __weak void TouchGFX_Task(void *argument)
 {
+  /* init code for LWIP */
+  MX_LWIP_Init();
   /* USER CODE BEGIN 5 */
   MX_TouchGFX_Process();
   /* Infinite loop */

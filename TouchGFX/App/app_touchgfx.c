@@ -16,6 +16,7 @@
   */
 
 #include "app_touchgfx.h"
+#include "ethernet.h"
 
 void touchgfx_init(void);
 void touchgfx_taskEntry(void);
