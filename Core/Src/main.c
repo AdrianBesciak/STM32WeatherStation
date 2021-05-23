@@ -179,18 +179,16 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
+  puts(ANSI_FG_GREEN "[TouchGFX]" ANSI_FG_DEFAULT " starting...");
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  puts(ANSI_FG_GREEN "[TouchGFX]" ANSI_FG_DEFAULT " starting...");
-
   /* creation of TouchGFXTask */
   TouchGFXTaskHandle = osThreadNew(TouchGFX_Task, NULL, &TouchGFXTask_attributes);
 
-  Ds18b20_Init();
-
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
+  Ds18b20_Init();
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
