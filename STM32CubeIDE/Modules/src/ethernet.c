@@ -1,4 +1,5 @@
 #include "../include/ethernet.h"
+#include "../include/weather.h"
 #include "task.h"
 
 extern struct netif gnetif;
@@ -55,7 +56,7 @@ void pullDataFromOWMServer() {
 	static char recv_buffer[1600];
 	//char sendBuffer[IObufferSize];
 
-	const char * uri = "GET http://api.openweathermap.org/data/2.5/weather?q=Krakow&appid=839d6df972338bb98ae9a6dbf710ad81\r\n\r\n";;
+	const char * uri = "GET http://api.openweathermap.org/data/2.5/weather?q=Krakow&lang=pl&appid=839d6df972338bb98ae9a6dbf710ad81\r\n\r\n";;
 
 	if (send(serverSocket, (void*) uri, strlen(uri), 0) < 0) {
 		printf("Error sending URI)\n");
