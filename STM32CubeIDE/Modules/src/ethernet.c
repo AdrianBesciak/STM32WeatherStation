@@ -1,10 +1,11 @@
 #include "../include/ethernet.h"
 #include "../include/weather.h"
 #include "task.h"
+#include <string.h>
 
 extern struct netif gnetif;
 
-weather_t weatherForecast;
+extern weather_t weatherForecast;
 
 void DHCPGetAddress(struct netif *gnetif) {
     vTaskDelay(500);
@@ -24,6 +25,73 @@ void processDataFromOWM(const char * data) {
 	printf("\n\n\nProcess Data Function, data length: %i\n", strlen(data));
 	vTaskDelay(1000);
 	printf("%s\n", data);
+
+	int index = 0;
+	while (index < strlen(data) && data[index] != '}') {	//miss "coord" field
+		index++;
+	}
+	index++;
+	if (index+1 < strlen(data) && data[index] == ',' && data[index+1] == '"') {
+		index += 2;
+	} else
+		return;
+
+	if (strncmp(&(data[index]), "weather", 7) == 0) {
+		index += 7;
+		while(index < strlen(data) && data[index] != 'm')
+			index++;
+		if (strncmp(&(data[index]), "main\":\"", 7) == 0) {
+			index += 7;
+			char weatherType[20];
+			int j = 0;
+			while (data[index] != '"') {
+				weatherType[j] = data[index];
+				j++;
+				index++;
+			}
+			weatherType[j] = '\0';
+			printf("\nMain Weather: %s\n", weatherType);
+			weatherForecast.weatherMainName = getMainWeather(weatherType);
+		}
+
+		while(data[index] != 'd')
+			index++;
+		if (strncmp(&(data[index]), "description\":\"", 14) == 0) {
+			index += 14;
+			int j = 0;
+			while (data[index] != '"') {
+				weatherForecast.weatherDescription[j] = data[index];
+				j++;
+				index++;
+			}
+			weatherForecast.weatherDescription[j] = '\0';
+			printf("\nWeather description: %s\n", weatherForecast.weatherDescription);
+		}
+		while (data[index] != ']')
+			index++;
+	} else
+		return;
+
+	while (index < strlen(data)) {
+		index++;
+		if (data[index] == 'm' && strncmp(&(data[index]), "main\":{\"", 8) == 0) {
+			index += 8;
+			break;
+		}
+	}
+	if (strncmp(&(data[index]), "temp\":", 6) == 0) {
+		index += 6;
+		weatherForecast.temp = getFloatValue(&(data[index]));
+		printf("Temperature: %f\n", weatherForecast.temp);
+	}
+
+	//ToDo: parse rest of weatherForecast values
+	//Some dummy values:
+	weatherForecast.pressure = 1021;
+	weatherForecast.visibility = 1200;
+	weatherForecast.windSpeed = 1.03;
+	strcpy(weatherForecast.city, "Krakow");
+
 }
 
 void pullDataFromOWMServer() {

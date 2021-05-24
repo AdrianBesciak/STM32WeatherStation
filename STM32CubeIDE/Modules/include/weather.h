@@ -19,16 +19,16 @@ typedef enum Weather_t {		//https://openweathermap.org/weather-conditions#Weathe
 
 
 typedef struct weather_t {
-	float * temp; //temperature in celsius
+	float temp; //temperature in celsius
 	Weather_t weatherMainName;
-	char * weatherDescription;	//in PL
-	float * pressure;	//hPa
-	float * humidity;	//%
-	float * visibility;	//m
-	float * windSpeed;	//m/s
-	float * rainfall;	//mm
-	float * snowfall;	//mm
-	char * city;
+	char weatherDescription[50];	//in PL
+	float pressure;	//hPa
+	float visibility;	//m
+	float windSpeed;	//m/s
+	char city[20];
 } weather_t;
 
 extern weather_t weatherForecast;
+
+Weather_t getMainWeather(const char * data);
+float getFloatValue(const char * data);
