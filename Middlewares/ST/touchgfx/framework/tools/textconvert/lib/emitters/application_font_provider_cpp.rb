@@ -20,7 +20,7 @@ class ApplicationFontProviderCpp < Template
     @cache = {}
   end
   def input_path
-    File.join(root_dir,'Templates','ApplicationFontProvider.cpp.temp')
+    File.join(root_dir,'Templates','ApplicationFontProvider.cpp.temperature')
   end
   def output_path
     'src/ApplicationFontProvider.cpp'

@@ -4,9 +4,6 @@
 weather_t weatherForecast;
 
 Weather_t getMainWeather(const char * data) {
-	if (strcmp(data, "Ash") == 0) {
-		return ASH;
-	}
 	if (strcmp(data, "Clear") == 0) {
 		return CLEAR;
 	}
@@ -16,39 +13,23 @@ Weather_t getMainWeather(const char * data) {
 	if (strcmp(data, "Drizzle") == 0) {
 		return DRIZZLE;
 	}
-	if (strcmp(data, "Dust") == 0) {
-		return DUST;
-	}
 	if (strcmp(data, "Fog") == 0) {
 		return FOG;
 	}
 	if (strcmp(data, "Haze") == 0) {
 		return HAZE;
 	}
-	if (strcmp(data, "Mist") == 0) {
-		return MIST;
-	}
 	if (strcmp(data, "Rain") == 0) {
 		return RAIN;
-	}
-	if (strcmp(data, "Sand") == 0) {
-		return SAND;
-	}
-	if (strcmp(data, "Smoke") == 0) {
-		return SMOKE;
 	}
 	if (strcmp(data, "Snow") == 0) {
 		return SNOW;
 	}
-	if (strcmp(data, "Squall") == 0) {
-		return SQUALL;
-	}
 	if (strcmp(data, "Thunderstorm") == 0) {
 		return THUNDERSTORM;
 	}
-	if (strcmp(data, "Tornado") == 0) {
-		return TORNADO;
-	}
+
+	return CLEAR; //defaults to clear
 }
 
 float getFloatValue(const char * data) {

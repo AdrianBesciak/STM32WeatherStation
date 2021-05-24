@@ -13,7 +13,7 @@
 
 class FontCacheCpp < Template
   def input_path
-    File.join(root_dir,'Templates','FontCache.cpp.temp')
+    File.join(root_dir,'Templates','FontCache.cpp.temperature')
   end
   def output_path
     '/src/FontCache.cpp'

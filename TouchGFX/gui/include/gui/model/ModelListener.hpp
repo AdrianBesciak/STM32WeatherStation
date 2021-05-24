@@ -2,13 +2,14 @@
 #define MODELLISTENER_HPP
 
 #include <gui/model/Model.hpp>
+#include "weather.h"
 
 class ModelListener
 {
 public:
-    ModelListener() : model(0) {}
+    ModelListener() : model(nullptr) {}
     
-    virtual ~ModelListener() {}
+    virtual ~ModelListener() = default;
 
     void bind(Model* m)
     {
@@ -16,6 +17,7 @@ public:
     }
 
     virtual void temperatureChanged(float temp) {};
+    virtual void weatherChanged(weather_t* weatherStruct) {};
 protected:
     Model* model;
 };

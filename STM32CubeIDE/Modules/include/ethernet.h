@@ -14,7 +14,7 @@ extern "C" {
 #include "cmsis_os.h"
 
 
-void internetConnectionThread(void const * arguments);
+_Noreturn void internetConnectionThread(void const * arguments);
 
 
 #ifdef __cplusplus

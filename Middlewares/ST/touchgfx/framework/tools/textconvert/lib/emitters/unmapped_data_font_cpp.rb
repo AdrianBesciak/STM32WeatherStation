@@ -13,7 +13,7 @@
 
 class UnmappedDataFontCpp < Template
   def input_path
-    File.join(root_dir,'Templates','UnmappedDataFont.cpp.temp')
+    File.join(root_dir,'Templates','UnmappedDataFont.cpp.temperature')
   end
   def output_path
     '/src/UnmappedDataFont.cpp'

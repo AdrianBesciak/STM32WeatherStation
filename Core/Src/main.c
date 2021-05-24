@@ -193,9 +193,16 @@ int main(void)
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   Ds18b20_Init();
-  BaseType_t internetConnectionTask = xTaskCreate(internetConnectionThread, "internetConnectionTask", 400, NULL, tskIDLE_PRIORITY, NULL);
+  BaseType_t internetConnectionTask = xTaskCreate(
+          internetConnectionThread,
+          "internetConnectionTask",
+          256 * 4,
+          NULL,
+          osPriorityNormal,
+          NULL);
+
   if (internetConnectionTask == pdPASS)
-	  printf("Succesfully created InternetConnectionTask\n");
+	  printf("Successfully created InternetConnectionTask\n");
   else if (internetConnectionTask == errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY)
 	  printf("Allocation memory error during creating internetConnectionTask\n");
   else

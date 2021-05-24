@@ -18,7 +18,7 @@ class ApplicationFontProviderHpp < Template
     @cache = {}
   end
   def input_path
-    File.join(root_dir,'Templates','ApplicationFontProvider.hpp.temp')
+    File.join(root_dir,'Templates','ApplicationFontProvider.hpp.temperature')
   end
   def output_path
     '/include/fonts/ApplicationFontProvider.hpp'

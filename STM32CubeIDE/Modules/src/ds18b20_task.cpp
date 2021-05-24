@@ -79,7 +79,7 @@ void Task_Ds18b20(void *argument) {
                 __enable_irq();
                 if(!invalid){
                     t.setTemperature(temperature);
-                    printf("Thermometer:" ANSI_FG_YELLOW " %0.2f*C" ANSI_FG_DEFAULT "\n", t.getTemperature());
+//                    printf("Thermometer:" ANSI_FG_YELLOW " %0.2f*C" ANSI_FG_DEFAULT "\n", t.getTemperature());
                 }
             }
         }

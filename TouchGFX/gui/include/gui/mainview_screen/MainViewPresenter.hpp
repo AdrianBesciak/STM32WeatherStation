@@ -3,6 +3,7 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
+#include "weather.h"
 
 using namespace touchgfx;
 
@@ -26,6 +27,7 @@ public:
     virtual void deactivate();
 
     virtual void temperatureChanged(float temp);
+    virtual void weatherChanged(weather_t* weather);
 
     virtual ~MainViewPresenter() {};
 

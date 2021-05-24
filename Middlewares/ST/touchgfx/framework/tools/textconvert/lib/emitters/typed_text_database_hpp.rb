@@ -13,7 +13,7 @@
 
 class TypedTextDatabaseHpp < Template
   def input_path
-    File.join(root_dir,'Templates','TypedTextDatabase.hpp.temp')
+    File.join(root_dir,'Templates','TypedTextDatabase.hpp.temperature')
   end
   def output_path
     'include/texts/TypedTextDatabase.hpp'

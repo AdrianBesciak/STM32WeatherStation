@@ -3,6 +3,7 @@
 
 #include <gui_generated/mainview_screen/MainViewViewBase.hpp>
 #include <gui/mainview_screen/MainViewPresenter.hpp>
+#include "weather.h"
 
 class MainViewView : public MainViewViewBase
 {
@@ -12,7 +13,10 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void updateTemperatureText(float temp);
+    virtual void updateWeather(weather_t* weather);
+    touchgfx::Image* selectIcon(Weather_t status);
 protected:
+    touchgfx::Image* prevWeatherIcon;
 };
 
 #endif // MAINVIEWVIEW_HPP

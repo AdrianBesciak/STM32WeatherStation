@@ -13,7 +13,7 @@
 
 class UnmappedDataFontHpp < Template
   def input_path
-    File.join(root_dir,'Templates','UnmappedDataFont.hpp.temp')
+    File.join(root_dir,'Templates','UnmappedDataFont.hpp.temperature')
   end
   def output_path
     '/include/fonts/UnmappedDataFont.hpp'

@@ -34,6 +34,18 @@ protected:
     touchgfx::SwipeContainer swipeContainer1;
     touchgfx::Container leftScreen;
     touchgfx::Image bgLeft;
+    touchgfx::Image cloud;
+    touchgfx::Image drizzle;
+    touchgfx::Image full_sun;
+    touchgfx::Image haze;
+    touchgfx::Image rain;
+    touchgfx::Image rain_thunder;
+    touchgfx::Image snow;
+    touchgfx::Image sun_cloud;
+    touchgfx::Image sun_cloud_haze;
+    touchgfx::Image sun_rain;
+    touchgfx::Image sun_rain_thunder;
+    touchgfx::Image thunder;
     touchgfx::Container centerScreen;
     touchgfx::Image bgCenter;
     touchgfx::Container rightScreen;

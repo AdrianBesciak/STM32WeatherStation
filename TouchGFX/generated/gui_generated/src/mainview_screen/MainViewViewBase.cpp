@@ -24,6 +24,66 @@ MainViewViewBase::MainViewViewBase()
     bgLeft.setXY(0, 0);
     bgLeft.setBitmap(touchgfx::Bitmap(BITMAP_BGLEFT_ID));
     leftScreen.add(bgLeft);
+
+    cloud.setXY(0, 0);
+    cloud.setVisible(false);
+    cloud.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
+    leftScreen.add(cloud);
+
+    drizzle.setXY(0, 0);
+    drizzle.setVisible(false);
+    drizzle.setBitmap(touchgfx::Bitmap(BITMAP_DRIZZLE_ID));
+    leftScreen.add(drizzle);
+
+    full_sun.setXY(0, 0);
+    full_sun.setVisible(false);
+    full_sun.setBitmap(touchgfx::Bitmap(BITMAP_FULL_SUN_ID));
+    leftScreen.add(full_sun);
+
+    haze.setXY(0, 0);
+    haze.setVisible(false);
+    haze.setBitmap(touchgfx::Bitmap(BITMAP_HAZE_ID));
+    leftScreen.add(haze);
+
+    rain.setXY(0, 0);
+    rain.setVisible(false);
+    rain.setBitmap(touchgfx::Bitmap(BITMAP_RAIN_ID));
+    leftScreen.add(rain);
+
+    rain_thunder.setXY(0, 0);
+    rain_thunder.setVisible(false);
+    rain_thunder.setBitmap(touchgfx::Bitmap(BITMAP_RAIN_THUNDER_ID));
+    leftScreen.add(rain_thunder);
+
+    snow.setXY(0, 0);
+    snow.setVisible(false);
+    snow.setBitmap(touchgfx::Bitmap(BITMAP_SNOW_ID));
+    leftScreen.add(snow);
+
+    sun_cloud.setXY(0, 0);
+    sun_cloud.setVisible(false);
+    sun_cloud.setBitmap(touchgfx::Bitmap(BITMAP_SUN_CLOUD_ID));
+    leftScreen.add(sun_cloud);
+
+    sun_cloud_haze.setXY(0, 0);
+    sun_cloud_haze.setVisible(false);
+    sun_cloud_haze.setBitmap(touchgfx::Bitmap(BITMAP_SUN_CLOUD_HAZE_ID));
+    leftScreen.add(sun_cloud_haze);
+
+    sun_rain.setXY(0, 0);
+    sun_rain.setVisible(false);
+    sun_rain.setBitmap(touchgfx::Bitmap(BITMAP_SUN_RAIN_ID));
+    leftScreen.add(sun_rain);
+
+    sun_rain_thunder.setXY(0, 0);
+    sun_rain_thunder.setVisible(false);
+    sun_rain_thunder.setBitmap(touchgfx::Bitmap(BITMAP_SUN_RAIN_THUNDER_ID));
+    leftScreen.add(sun_rain_thunder);
+
+    thunder.setXY(0, 0);
+    thunder.setVisible(false);
+    thunder.setBitmap(touchgfx::Bitmap(BITMAP_THUNDER_ID));
+    leftScreen.add(thunder);
     swipeContainer1.add(leftScreen);
 
     centerScreen.setWidth(480);

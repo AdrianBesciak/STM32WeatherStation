@@ -73,7 +73,7 @@ class TextsCpp < Template
     text_entries.is_rtl
   end
   def input_path
-    File.join(root_dir,'Templates','Texts.cpp.temp')
+    File.join(root_dir,'Templates','Texts.cpp.temperature')
   end
   def output_path
     'src/Texts.cpp'

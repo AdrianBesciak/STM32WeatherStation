@@ -1,3 +1,6 @@
 /TouchGFX/build
 /TouchGFX/simulator/msvs/.vs
 /STM32CubeIDE/Debug
+.idea
+cmake-build-debug
+CMakeLists.txt
