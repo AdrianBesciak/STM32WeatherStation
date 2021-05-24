@@ -55,6 +55,10 @@ protected:
     touchgfx::TextAreaWithOneWildcard humidityText;
     touchgfx::ScalableImage pressureimg;
     touchgfx::TextAreaWithOneWildcard pressureText;
+    touchgfx::ScalableImage wind_speed;
+    touchgfx::TextAreaWithOneWildcard windSpeed;
+    touchgfx::TextAreaWithOneWildcard citynametext;
+    touchgfx::TextAreaWithOneWildcard desc;
     touchgfx::Container centerScreen;
     touchgfx::Image bgCenter;
     touchgfx::Container rightScreen;
@@ -74,6 +78,12 @@ protected:
     touchgfx::Unicode::UnicodeChar humidityTextBuffer[HUMIDITYTEXT_SIZE];
     static const uint16_t PRESSURETEXT_SIZE = 16;
     touchgfx::Unicode::UnicodeChar pressureTextBuffer[PRESSURETEXT_SIZE];
+    static const uint16_t WINDSPEED_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar windSpeedBuffer[WINDSPEED_SIZE];
+    static const uint16_t CITYNAMETEXT_SIZE = 64;
+    touchgfx::Unicode::UnicodeChar citynametextBuffer[CITYNAMETEXT_SIZE];
+    static const uint16_t DESC_SIZE = 64;
+    touchgfx::Unicode::UnicodeChar descBuffer[DESC_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 16;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
 

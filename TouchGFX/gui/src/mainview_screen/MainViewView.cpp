@@ -34,6 +34,14 @@ void MainViewView::updateTexts(weather_t* w) {
     Unicode::snprintf(pressureTextBuffer, PRESSURETEXT_SIZE, "%uhPa", w->pressure);
     pressureText.invalidate();
 
+    Unicode::snprintfFloat(windSpeedBuffer, WINDSPEED_SIZE, "%2.2f m/s", w->wind_speed);
+    windSpeed.invalidate();
+
+    Unicode::snprintf(citynametextBuffer, CITYNAMETEXT_SIZE, "%s", w->city);
+    citynametext.invalidate();
+
+    Unicode::snprintf(descBuffer, DESC_SIZE, "%uhPa", w->desc);
+    desc.invalidate();
 }
 
 void MainViewView::updateWeather(weather_t* weather){

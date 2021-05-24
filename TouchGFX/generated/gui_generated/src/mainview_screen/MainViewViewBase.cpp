@@ -119,11 +119,11 @@ MainViewViewBase::MainViewViewBase()
     leftScreen.add(current_text_desc_1);
 
     hum.setBitmap(touchgfx::Bitmap(BITMAP_HUMIDITY_ID));
-    hum.setPosition(8, 88, 51, 52);
+    hum.setPosition(8, 86, 51, 52);
     hum.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     leftScreen.add(hum);
 
-    humidityText.setPosition(70, 99, 118, 28);
+    humidityText.setPosition(66, 97, 118, 28);
     humidityText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     humidityText.setLinespacing(0);
     humidityTextBuffer[0] = 0;
@@ -132,17 +132,46 @@ MainViewViewBase::MainViewViewBase()
     leftScreen.add(humidityText);
 
     pressureimg.setBitmap(touchgfx::Bitmap(BITMAP_PRESSURE2_ID));
-    pressureimg.setPosition(8, 150, 51, 48);
+    pressureimg.setPosition(8, 145, 51, 48);
     pressureimg.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     leftScreen.add(pressureimg);
 
-    pressureText.setPosition(70, 161, 118, 27);
+    pressureText.setPosition(65, 157, 118, 27);
     pressureText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pressureText.setLinespacing(0);
     pressureTextBuffer[0] = 0;
     pressureText.setWildcard(pressureTextBuffer);
     pressureText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     leftScreen.add(pressureText);
+
+    wind_speed.setBitmap(touchgfx::Bitmap(BITMAP_WIND_SPEED_ID));
+    wind_speed.setPosition(2, 199, 57, 52);
+    wind_speed.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    leftScreen.add(wind_speed);
+
+    windSpeed.setPosition(65, 212, 118, 27);
+    windSpeed.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    windSpeed.setLinespacing(0);
+    windSpeedBuffer[0] = 0;
+    windSpeed.setWildcard(windSpeedBuffer);
+    windSpeed.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    leftScreen.add(windSpeed);
+
+    citynametext.setPosition(292, 172, 180, 33);
+    citynametext.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    citynametext.setLinespacing(0);
+    citynametextBuffer[0] = 0;
+    citynametext.setWildcard(citynametextBuffer);
+    citynametext.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
+    leftScreen.add(citynametext);
+
+    desc.setPosition(292, 209, 180, 33);
+    desc.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    desc.setLinespacing(0);
+    descBuffer[0] = 0;
+    desc.setWildcard(descBuffer);
+    desc.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
+    leftScreen.add(desc);
     swipeContainer1.add(leftScreen);
 
     centerScreen.setWidth(480);
