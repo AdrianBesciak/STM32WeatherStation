@@ -20,8 +20,10 @@ void Model::tick()
 		}
 	}
 
-	if(tick_count % 30 == 0){
+	if(tick_count % 50 == 0){
+	    //FIXME: remove this, only for testing
 	    weatherForecast.status = static_cast<Weather_t>((weatherForecast.status + 1) % 5);
+        weatherForecast.temperature += 0.1;
 
 		modelListener->weatherChanged(&weatherForecast);
 	}

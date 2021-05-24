@@ -84,6 +84,14 @@ MainViewViewBase::MainViewViewBase()
     thunder.setVisible(false);
     thunder.setBitmap(touchgfx::Bitmap(BITMAP_THUNDER_ID));
     leftScreen.add(thunder);
+
+    currentOWMtemp.setPosition(166, 12, 262, 34);
+    currentOWMtemp.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    currentOWMtemp.setLinespacing(0);
+    Unicode::snprintf(currentOWMtempBuffer, CURRENTOWMTEMP_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID5).getText());
+    currentOWMtemp.setWildcard(currentOWMtempBuffer);
+    currentOWMtemp.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    leftScreen.add(currentOWMtemp);
     swipeContainer1.add(leftScreen);
 
     centerScreen.setWidth(480);
@@ -109,7 +117,7 @@ MainViewViewBase::MainViewViewBase()
     currentTempValue.setPosition(136, 99, 292, 37);
     currentTempValue.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentTempValue.setLinespacing(0);
-    Unicode::snprintf(currentTempValueBuffer, CURRENTTEMPVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID1).getText());
+    Unicode::snprintf(currentTempValueBuffer, CURRENTTEMPVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID4).getText());
     currentTempValue.setWildcard(currentTempValueBuffer);
     currentTempValue.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
     rightScreen.add(currentTempValue);

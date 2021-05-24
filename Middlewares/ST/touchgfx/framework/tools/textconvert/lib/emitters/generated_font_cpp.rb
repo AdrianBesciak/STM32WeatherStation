@@ -13,7 +13,7 @@
 
 class GeneratedFontCpp < Template
   def input_path
-    File.join(root_dir,'Templates','GeneratedFont.cpp.temperature')
+    File.join(root_dir,'Templates','GeneratedFont.cpp.temp')
   end
   def output_path
     '/src/GeneratedFont.cpp'

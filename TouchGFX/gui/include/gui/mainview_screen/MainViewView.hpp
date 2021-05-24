@@ -13,6 +13,7 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void updateTemperatureText(float temp);
+    virtual void updateOWMText(double temp);
     virtual void updateWeather(weather_t* weather);
     touchgfx::Image* selectIcon(Weather_t status);
 protected:

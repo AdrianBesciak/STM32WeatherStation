@@ -21,15 +21,23 @@ void MainViewView::updateTemperatureText(float temp){
 	currentTempValue.invalidate();
 }
 
+void MainViewView::updateOWMText(double temp) {
+    Unicode::snprintfFloat(currentOWMtempBuffer, MainViewView::CURRENTOWMTEMP_SIZE, "%2.2f°C", temp);
+    currentOWMtemp.invalidate();
+}
+
 void MainViewView::updateWeather(weather_t* weather){
     if(prevWeatherIcon){
         prevWeatherIcon->setVisible(false);
         prevWeatherIcon->invalidate();
     }
 
+
     touchgfx::Image* newIcon = selectIcon(weather->status);
     newIcon->setVisible(true);
     newIcon->invalidate();
+
+    updateOWMText(weather->temperature);
 
     prevWeatherIcon = newIcon;
 }
@@ -57,3 +65,5 @@ touchgfx::Image *MainViewView::selectIcon(Weather_t status) {
     printf("selectIcon missing switch value\n");
     return nullptr;
 }
+
+

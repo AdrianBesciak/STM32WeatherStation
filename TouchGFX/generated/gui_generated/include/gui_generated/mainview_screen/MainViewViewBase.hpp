@@ -11,8 +11,8 @@
 #include <touchgfx/containers/SwipeContainer.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
 class MainViewViewBase : public touchgfx::View<MainViewPresenter>
@@ -46,6 +46,7 @@ protected:
     touchgfx::Image sun_rain;
     touchgfx::Image sun_rain_thunder;
     touchgfx::Image thunder;
+    touchgfx::TextAreaWithOneWildcard currentOWMtemp;
     touchgfx::Container centerScreen;
     touchgfx::Image bgCenter;
     touchgfx::Container rightScreen;
@@ -57,6 +58,8 @@ protected:
     /*
      * Wildcard Buffers
      */
+    static const uint16_t CURRENTOWMTEMP_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar currentOWMtempBuffer[CURRENTOWMTEMP_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 16;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
 

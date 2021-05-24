@@ -13,7 +13,7 @@
 
 class GeneratedFontHpp < Template
   def input_path
-    File.join(root_dir,'Templates','GeneratedFont.hpp.temperature')
+    File.join(root_dir,'Templates','GeneratedFont.hpp.temp')
   end
   def output_path
     '/include/fonts/GeneratedFont.hpp'

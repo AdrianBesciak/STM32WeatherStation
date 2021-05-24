@@ -25,7 +25,7 @@ class TextKeysAndLanguages < Template
     text_entries.entries.map(&:cpp_text_id)
   end
   def input_path
-    File.join(root_dir,'Templates','TextKeysAndLanguages.hpp.temperature')
+    File.join(root_dir,'Templates','TextKeysAndLanguages.hpp.temp')
   end
   def output_path
     'include/texts/TextKeysAndLanguages.hpp'

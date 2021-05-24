@@ -151,7 +151,7 @@ class LanguageXxCpp < Template
 # end
 
   def input_path
-    File.join(root_dir,'Templates','LanguageXX.cpp.temperature')
+    File.join(root_dir,'Templates','LanguageXX.cpp.temp')
   end
 
   def output_path

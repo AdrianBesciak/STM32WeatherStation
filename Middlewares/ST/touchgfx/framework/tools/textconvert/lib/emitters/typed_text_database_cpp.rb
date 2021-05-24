@@ -125,7 +125,7 @@ class TypedTextDatabaseCpp < Template
   end
 
   def input_path
-    File.join(root_dir,'Templates','TypedTextDatabase.cpp.temperature')
+    File.join(root_dir,'Templates','TypedTextDatabase.cpp.temp')
   end
   def output_path
     'src/TypedTextDatabase.cpp'

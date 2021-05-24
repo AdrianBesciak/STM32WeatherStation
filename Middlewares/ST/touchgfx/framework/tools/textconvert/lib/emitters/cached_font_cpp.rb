@@ -13,7 +13,7 @@
 
 class CachedFontCpp < Template
   def input_path
-    File.join(root_dir,'Templates','CachedFont.cpp.temperature')
+    File.join(root_dir,'Templates','CachedFont.cpp.temp')
   end
   def output_path
     '/src/CachedFont.cpp'
