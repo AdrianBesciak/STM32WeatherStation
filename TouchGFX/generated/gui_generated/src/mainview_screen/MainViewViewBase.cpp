@@ -25,72 +25,72 @@ MainViewViewBase::MainViewViewBase()
     bgLeft.setBitmap(touchgfx::Bitmap(BITMAP_BGLEFT_ID));
     leftScreen.add(bgLeft);
 
-    cloud.setXY(0, 0);
+    cloud.setXY(365, 0);
     cloud.setVisible(false);
     cloud.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
     leftScreen.add(cloud);
 
-    drizzle.setXY(0, 0);
+    drizzle.setXY(332, 0);
     drizzle.setVisible(false);
     drizzle.setBitmap(touchgfx::Bitmap(BITMAP_DRIZZLE_ID));
     leftScreen.add(drizzle);
 
-    full_sun.setXY(0, 0);
+    full_sun.setXY(388, 0);
     full_sun.setVisible(false);
     full_sun.setBitmap(touchgfx::Bitmap(BITMAP_FULL_SUN_ID));
     leftScreen.add(full_sun);
 
-    haze.setXY(0, 0);
+    haze.setXY(359, 0);
     haze.setVisible(false);
     haze.setBitmap(touchgfx::Bitmap(BITMAP_HAZE_ID));
     leftScreen.add(haze);
 
-    rain.setXY(0, 0);
+    rain.setXY(369, 0);
     rain.setVisible(false);
     rain.setBitmap(touchgfx::Bitmap(BITMAP_RAIN_ID));
     leftScreen.add(rain);
 
-    rain_thunder.setXY(0, 0);
+    rain_thunder.setXY(370, 0);
     rain_thunder.setVisible(false);
     rain_thunder.setBitmap(touchgfx::Bitmap(BITMAP_RAIN_THUNDER_ID));
     leftScreen.add(rain_thunder);
 
-    snow.setXY(0, 0);
+    snow.setXY(370, 0);
     snow.setVisible(false);
     snow.setBitmap(touchgfx::Bitmap(BITMAP_SNOW_ID));
     leftScreen.add(snow);
 
-    sun_cloud.setXY(0, 0);
+    sun_cloud.setXY(333, 0);
     sun_cloud.setVisible(false);
     sun_cloud.setBitmap(touchgfx::Bitmap(BITMAP_SUN_CLOUD_ID));
     leftScreen.add(sun_cloud);
 
-    sun_cloud_haze.setXY(0, 0);
+    sun_cloud_haze.setXY(320, 0);
     sun_cloud_haze.setVisible(false);
     sun_cloud_haze.setBitmap(touchgfx::Bitmap(BITMAP_SUN_CLOUD_HAZE_ID));
     leftScreen.add(sun_cloud_haze);
 
-    sun_rain.setXY(0, 0);
+    sun_rain.setXY(342, 0);
     sun_rain.setVisible(false);
     sun_rain.setBitmap(touchgfx::Bitmap(BITMAP_SUN_RAIN_ID));
     leftScreen.add(sun_rain);
 
-    sun_rain_thunder.setXY(0, 0);
+    sun_rain_thunder.setXY(343, 0);
     sun_rain_thunder.setVisible(false);
     sun_rain_thunder.setBitmap(touchgfx::Bitmap(BITMAP_SUN_RAIN_THUNDER_ID));
     leftScreen.add(sun_rain_thunder);
 
-    thunder.setXY(0, 0);
+    thunder.setXY(366, 0);
     thunder.setVisible(false);
     thunder.setBitmap(touchgfx::Bitmap(BITMAP_THUNDER_ID));
     leftScreen.add(thunder);
 
     owm_temp.setBitmap(touchgfx::Bitmap(BITMAP_OWM_TEMP_ID));
-    owm_temp.setPosition(194, 3, 33, 81);
+    owm_temp.setPosition(14, 0, 33, 81);
     owm_temp.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     leftScreen.add(owm_temp);
 
-    currentOWMtemp.setPosition(370, 12, 104, 28);
+    currentOWMtemp.setPosition(188, 12, 104, 28);
     currentOWMtemp.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentOWMtemp.setLinespacing(0);
     currentOWMtempBuffer[0] = 0;
@@ -98,7 +98,7 @@ MainViewViewBase::MainViewViewBase()
     currentOWMtemp.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     leftScreen.add(currentOWMtemp);
 
-    currentOWMfeels.setPosition(370, 46, 104, 26);
+    currentOWMfeels.setPosition(188, 46, 104, 26);
     currentOWMfeels.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentOWMfeels.setLinespacing(0);
     currentOWMfeelsBuffer[0] = 0;
@@ -106,24 +106,24 @@ MainViewViewBase::MainViewViewBase()
     currentOWMfeels.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     leftScreen.add(currentOWMfeels);
 
-    current_text_desc.setPosition(236, 12, 128, 28);
+    current_text_desc.setPosition(51, 12, 128, 28);
     current_text_desc.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     current_text_desc.setLinespacing(0);
     current_text_desc.setTypedText(touchgfx::TypedText(T_SINGLEUSEID7));
     leftScreen.add(current_text_desc);
 
-    current_text_desc_1.setPosition(236, 46, 128, 26);
+    current_text_desc_1.setPosition(51, 46, 128, 26);
     current_text_desc_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     current_text_desc_1.setLinespacing(0);
     current_text_desc_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID8));
     leftScreen.add(current_text_desc_1);
 
     hum.setBitmap(touchgfx::Bitmap(BITMAP_HUMIDITY_ID));
-    hum.setPosition(185, 84, 51, 52);
+    hum.setPosition(8, 88, 51, 52);
     hum.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     leftScreen.add(hum);
 
-    humidityText.setPosition(246, 96, 118, 28);
+    humidityText.setPosition(70, 99, 118, 28);
     humidityText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     humidityText.setLinespacing(0);
     humidityTextBuffer[0] = 0;
@@ -132,11 +132,11 @@ MainViewViewBase::MainViewViewBase()
     leftScreen.add(humidityText);
 
     pressureimg.setBitmap(touchgfx::Bitmap(BITMAP_PRESSURE2_ID));
-    pressureimg.setPosition(185, 136, 51, 48);
+    pressureimg.setPosition(8, 150, 51, 48);
     pressureimg.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     leftScreen.add(pressureimg);
 
-    pressureText.setPosition(246, 146, 118, 27);
+    pressureText.setPosition(70, 161, 118, 27);
     pressureText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     pressureText.setLinespacing(0);
     pressureTextBuffer[0] = 0;
