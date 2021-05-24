@@ -1,9 +1,8 @@
 #include <gui/mainview_screen/MainViewView.hpp>
-#include <stdio.h>
 
 MainViewView::MainViewView() : prevWeatherIcon(nullptr)
 {
-
+    desc.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
 }
 
 void MainViewView::setupScreen()
@@ -21,6 +20,7 @@ void MainViewView::updateTemperatureText(float temp){
 	currentTempValue.invalidate();
 }
 
+static char tempBuffer[0x20];
 void MainViewView::updateTexts(weather_t* w) {
     Unicode::snprintfFloat(currentOWMtempBuffer, MainViewView::CURRENTOWMTEMP_SIZE, "%2.2f°C", w->temperature);
     currentOWMtemp.invalidate();
@@ -37,11 +37,21 @@ void MainViewView::updateTexts(weather_t* w) {
     Unicode::snprintfFloat(windSpeedBuffer, WINDSPEED_SIZE, "%2.2f m/s", w->wind_speed);
     windSpeed.invalidate();
 
-    Unicode::snprintf(citynametextBuffer, CITYNAMETEXT_SIZE, "%s", w->city);
+    Unicode::fromUTF8(reinterpret_cast<const uint8_t *>(w->city), citynametextBuffer, CITYNAMETEXT_SIZE);
     citynametext.invalidate();
 
-    Unicode::snprintf(descBuffer, DESC_SIZE, "%uhPa", w->desc);
+    Unicode::fromUTF8(reinterpret_cast<const uint8_t *>(w->desc), descBuffer, CITYNAMETEXT_SIZE);
     desc.invalidate();
+
+    tm *timeinfo = localtime(&w->sunrise);
+    strftime(tempBuffer, 0x100, "%H:%M:%S", timeinfo);
+    Unicode::strncpy(sunriseTextBuffer, tempBuffer, SUNRISETEXT_SIZE);
+    sunriseText.invalidate();
+
+    timeinfo = localtime(&w->sunset);
+    strftime(tempBuffer, 0x100, "%H:%M:%S", timeinfo);
+    Unicode::strncpy(sunsetTextBuffer, tempBuffer, SUNSETTEXT_SIZE);
+    sunsetText.invalidate();
 }
 
 void MainViewView::updateWeather(weather_t* weather){
@@ -49,7 +59,6 @@ void MainViewView::updateWeather(weather_t* weather){
         prevWeatherIcon->setVisible(false);
         prevWeatherIcon->invalidate();
     }
-
 
     touchgfx::Image* newIcon = selectIcon(weather->status);
     newIcon->setVisible(true);

@@ -33,8 +33,8 @@ void parse_OWM_data(const char *data) {
     double wind_speed = json_object_dotget_number(jsonObject, "wind.speed");
 
     JSON_Object *sys = json_object_get_object(jsonObject, "sys");
-    double sunrise = json_object_get_number(sys, "sunrise");
-    double sunset = json_object_get_number(sys, "sunset");
+    long sunrise = (long) json_object_get_number(sys, "sunrise");
+    long sunset = (long) json_object_get_number(sys, "sunset");
 
     const char *cityName = json_object_get_string(jsonObject, "name");
 
@@ -52,17 +52,17 @@ void parse_OWM_data(const char *data) {
     w->humidity = (uint32_t) humidity;
     w->visibility = (uint32_t) visibility;
     w->wind_speed = wind_speed;
-    w->sunrise = (uint32_t) sunrise;
-    w->sunset = (uint32_t) sunset;
+    w->sunrise = (time_t) (sunrise + (3600 * 2));
+    w->sunset = (time_t) (sunset + (3600 * 2));
     w->status = translate_main_to_enum(weather_main);
     strncpy(w->main, weather_main, MAX_MAIN_NAME);
     strncpy(w->desc, weather_description, MAX_DESCRIPTION_LEN);
     strncpy(w->city, cityName, MAX_CITY_NAME);
 
-    printf("lon: %0.2f lat: %0.2f\n", w->lon, w->lat);
-    printf("temp: %0.2f feels: %0.2f pressure: %lu humidity: %lu\n", w->temperature, w->feels_like, w->pressure, w->humidity);
+    printf("\nlon: %0.2f lat: %0.2f\n", w->lon, w->lat);
+    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure, w->humidity);
     printf("visibility %u wind_speed: %0.2f\n", w->visibility, w->wind_speed);
-    printf("sunrise: %u | sunset: %u\n", w->sunrise, w->sunset);
+    printf("sunrise: %ld | sunset: %ld\n", (long) w->sunrise, (long) w->sunset);
     printf("city %s\n", w->city);
     printf("weather: %s desc: %s\n", w->main, w->desc);
     printf("-----------------------------------------\n");
@@ -73,11 +73,11 @@ void cleanup_socket(int sock){
     close(sock);
 }
 
-void pullDataFromOWMServer() {
-//    parse_OWM_data(
-//            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"bezchmurnie\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temperature\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
-//    );
-//    return;
+void get_OWM_data() {
+    parse_OWM_data(
+            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"ąłżźćsdasadd aasd asd\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temperature\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
+    );
+    return;
 
 
     ip4_addr_t serverIP;
@@ -96,15 +96,15 @@ void pullDataFromOWMServer() {
 
     inet_pton(tcp_server.sin_family, serverIPString, &(tcp_server.sin_addr));
     int serverSocket = socket(tcp_server.sin_family, SOCK_STREAM, 0);
-    vTaskDelay(1000);
+    vTaskDelay(1'000);
 
     if (connect(serverSocket, (struct sockaddr *) &tcp_server, sizeof(tcp_server)) != 0) {
         printf("Error connecting to the server\n");
         return;
     }
-    vTaskDelay(1000);
+    vTaskDelay(1'000);
 
-    constexpr int RECV_BUFFER_SIZE = 1600;
+    constexpr int RECV_BUFFER_SIZE = 1'600;
     static char recv_buffer[RECV_BUFFER_SIZE];
 
     const char *uri = "GET http://api.openweathermap.org/data/2.5/weather?q=Krakow&units=metric&lang=pl&appid=839d6df972338bb98ae9a6dbf710ad81\r\n\r\n";;
@@ -114,7 +114,7 @@ void pullDataFromOWMServer() {
         return;
     }
 
-    vTaskDelay(1000);
+    vTaskDelay(1'000);
 
     printf("\nWaiting for response from the server\n");
     int receivedCharacters = recv(serverSocket, recv_buffer, RECV_BUFFER_SIZE, 0);
@@ -133,17 +133,15 @@ void pullDataFromOWMServer() {
     parse_OWM_data(recv_buffer);
 }
 
-
 void internetConnectionThread(void const *arguments) {
     MX_LWIP_Init();
 
     printf("Internet Connection Thread started\n");
     dhcp_get_address();
 
-
-    while (1) {
+    while (true) {
 //        printf("Internet Connection Thread infinite loop\n");
-        pullDataFromOWMServer();
+        get_OWM_data();
         vTaskDelay(30'000);
     }
 }

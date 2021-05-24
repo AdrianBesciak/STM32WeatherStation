@@ -25,27 +25,27 @@ MainViewViewBase::MainViewViewBase()
     bgLeft.setBitmap(touchgfx::Bitmap(BITMAP_BGLEFT_ID));
     leftScreen.add(bgLeft);
 
-    cloud.setXY(365, 0);
+    cloud.setXY(348, 44);
     cloud.setVisible(false);
     cloud.setBitmap(touchgfx::Bitmap(BITMAP_CLOUD_ID));
     leftScreen.add(cloud);
 
-    drizzle.setXY(332, 0);
+    drizzle.setXY(324, 33);
     drizzle.setVisible(false);
     drizzle.setBitmap(touchgfx::Bitmap(BITMAP_DRIZZLE_ID));
     leftScreen.add(drizzle);
 
-    full_sun.setXY(388, 0);
+    full_sun.setXY(363, 22);
     full_sun.setVisible(false);
     full_sun.setBitmap(touchgfx::Bitmap(BITMAP_FULL_SUN_ID));
     leftScreen.add(full_sun);
 
-    haze.setXY(359, 0);
+    haze.setXY(344, 26);
     haze.setVisible(false);
     haze.setBitmap(touchgfx::Bitmap(BITMAP_HAZE_ID));
     leftScreen.add(haze);
 
-    rain.setXY(369, 0);
+    rain.setXY(350, 35);
     rain.setVisible(false);
     rain.setBitmap(touchgfx::Bitmap(BITMAP_RAIN_ID));
     leftScreen.add(rain);
@@ -55,32 +55,32 @@ MainViewViewBase::MainViewViewBase()
     rain_thunder.setBitmap(touchgfx::Bitmap(BITMAP_RAIN_THUNDER_ID));
     leftScreen.add(rain_thunder);
 
-    snow.setXY(370, 0);
+    snow.setXY(352, 31);
     snow.setVisible(false);
     snow.setBitmap(touchgfx::Bitmap(BITMAP_SNOW_ID));
     leftScreen.add(snow);
 
-    sun_cloud.setXY(333, 0);
+    sun_cloud.setXY(333, 24);
     sun_cloud.setVisible(false);
     sun_cloud.setBitmap(touchgfx::Bitmap(BITMAP_SUN_CLOUD_ID));
     leftScreen.add(sun_cloud);
 
-    sun_cloud_haze.setXY(320, 0);
+    sun_cloud_haze.setXY(320, 25);
     sun_cloud_haze.setVisible(false);
     sun_cloud_haze.setBitmap(touchgfx::Bitmap(BITMAP_SUN_CLOUD_HAZE_ID));
     leftScreen.add(sun_cloud_haze);
 
-    sun_rain.setXY(342, 0);
+    sun_rain.setXY(336, 15);
     sun_rain.setVisible(false);
     sun_rain.setBitmap(touchgfx::Bitmap(BITMAP_SUN_RAIN_ID));
     leftScreen.add(sun_rain);
 
-    sun_rain_thunder.setXY(343, 0);
+    sun_rain_thunder.setXY(338, 5);
     sun_rain_thunder.setVisible(false);
     sun_rain_thunder.setBitmap(touchgfx::Bitmap(BITMAP_SUN_RAIN_THUNDER_ID));
     leftScreen.add(sun_rain_thunder);
 
-    thunder.setXY(366, 0);
+    thunder.setXY(350, 30);
     thunder.setVisible(false);
     thunder.setBitmap(touchgfx::Bitmap(BITMAP_THUNDER_ID));
     leftScreen.add(thunder);
@@ -90,7 +90,7 @@ MainViewViewBase::MainViewViewBase()
     owm_temp.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     leftScreen.add(owm_temp);
 
-    currentOWMtemp.setPosition(188, 12, 104, 28);
+    currentOWMtemp.setPosition(188, 12, 113, 28);
     currentOWMtemp.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentOWMtemp.setLinespacing(0);
     currentOWMtempBuffer[0] = 0;
@@ -98,7 +98,7 @@ MainViewViewBase::MainViewViewBase()
     currentOWMtemp.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     leftScreen.add(currentOWMtemp);
 
-    currentOWMfeels.setPosition(188, 46, 104, 26);
+    currentOWMfeels.setPosition(188, 46, 113, 26);
     currentOWMfeels.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentOWMfeels.setLinespacing(0);
     currentOWMfeelsBuffer[0] = 0;
@@ -157,7 +157,7 @@ MainViewViewBase::MainViewViewBase()
     windSpeed.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     leftScreen.add(windSpeed);
 
-    citynametext.setPosition(292, 172, 180, 33);
+    citynametext.setPosition(261, 153, 211, 33);
     citynametext.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     citynametext.setLinespacing(0);
     citynametextBuffer[0] = 0;
@@ -165,12 +165,12 @@ MainViewViewBase::MainViewViewBase()
     citynametext.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
     leftScreen.add(citynametext);
 
-    desc.setPosition(292, 209, 180, 33);
+    desc.setPosition(261, 196, 211, 55);
     desc.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     desc.setLinespacing(0);
     descBuffer[0] = 0;
     desc.setWildcard(descBuffer);
-    desc.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
+    desc.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
     leftScreen.add(desc);
     swipeContainer1.add(leftScreen);
 
@@ -189,12 +189,12 @@ MainViewViewBase::MainViewViewBase()
     bgRight.setBitmap(touchgfx::Bitmap(BITMAP_BGRIGHT_ID));
     rightScreen.add(bgRight);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_TEMPERATURE_ICON_ID));
-    scalableImage1.setPosition(-27, 55, 156, 163);
+    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_OWM_TEMP_ID));
+    scalableImage1.setPosition(43, 143, 45, 106);
     scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
     rightScreen.add(scalableImage1);
 
-    currentTempValue.setPosition(136, 99, 292, 37);
+    currentTempValue.setPosition(136, 193, 292, 37);
     currentTempValue.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentTempValue.setLinespacing(0);
     Unicode::snprintf(currentTempValueBuffer, CURRENTTEMPVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID4).getText());
@@ -202,11 +202,37 @@ MainViewViewBase::MainViewViewBase()
     currentTempValue.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
     rightScreen.add(currentTempValue);
 
-    currentTempText.setXY(92, 55);
+    currentTempText.setXY(92, 143);
     currentTempText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentTempText.setLinespacing(0);
     currentTempText.setTypedText(touchgfx::TypedText(T_TEMPINSIDETEXT));
     rightScreen.add(currentTempText);
+
+    sunrise.setBitmap(touchgfx::Bitmap(BITMAP_SUNRISE_ID));
+    sunrise.setPosition(28, 12, 74, 74);
+    sunrise.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    rightScreen.add(sunrise);
+
+    sunset.setBitmap(touchgfx::Bitmap(BITMAP_SUNSET_ID));
+    sunset.setPosition(261, 12, 74, 74);
+    sunset.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    rightScreen.add(sunset);
+
+    sunsetText.setPosition(348, 22, 118, 27);
+    sunsetText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    sunsetText.setLinespacing(0);
+    sunsetTextBuffer[0] = 0;
+    sunsetText.setWildcard(sunsetTextBuffer);
+    sunsetText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    rightScreen.add(sunsetText);
+
+    sunriseText.setPosition(115, 22, 118, 27);
+    sunriseText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    sunriseText.setLinespacing(0);
+    sunriseTextBuffer[0] = 0;
+    sunriseText.setWildcard(sunriseTextBuffer);
+    sunriseText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    rightScreen.add(sunriseText);
     swipeContainer1.add(rightScreen);
     swipeContainer1.setSelectedPage(1);
 

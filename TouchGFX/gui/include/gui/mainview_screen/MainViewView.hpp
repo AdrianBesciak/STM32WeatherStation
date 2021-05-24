@@ -3,7 +3,10 @@
 
 #include <gui_generated/mainview_screen/MainViewViewBase.hpp>
 #include <gui/mainview_screen/MainViewPresenter.hpp>
+#include <chrono>
+#include <stdio.h>
 #include "weather.hpp"
+
 
 class MainViewView : public MainViewViewBase
 {

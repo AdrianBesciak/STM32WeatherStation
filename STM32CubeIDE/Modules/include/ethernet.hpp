@@ -9,10 +9,8 @@ extern "C" {
 #include <api.h>
 #include <string.h>
 #include <sockets.h>
-#include <sys.h>
 #include "lwip.h"
 #include "cmsis_os.h"
-
 
 _Noreturn void internetConnectionThread(void const * arguments);
 

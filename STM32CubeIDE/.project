@@ -764,14 +764,19 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/FontCache.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdanab_27_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_verdanab_26_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_27_4bpp_0.cpp</locationURI>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_26_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdanab_29_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_verdanab_28_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_29_4bpp_0.cpp</locationURI>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_28_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Font_verdana_20_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdana_20_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Font_verdana_25_4bpp_0.cpp</name>
@@ -784,14 +789,19 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/GeneratedFont.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdanab_27_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_verdanab_26_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_27_4bpp.cpp</locationURI>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_26_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdanab_29_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_verdanab_28_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_29_4bpp.cpp</locationURI>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_28_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Kerning_verdana_20_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdana_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Kerning_verdana_25_4bpp.cpp</name>
@@ -799,14 +809,19 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdana_25_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdanab_27_4bpp.cpp</name>
+			<name>Application/User/generated/Table_verdanab_26_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_27_4bpp.cpp</locationURI>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_26_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdanab_29_4bpp.cpp</name>
+			<name>Application/User/generated/Table_verdanab_28_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_29_4bpp.cpp</locationURI>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_28_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_verdana_20_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_verdana_25_4bpp.cpp</name>
@@ -912,6 +927,16 @@
 			<name>Application/User/generated/image_snow.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/weather/image_snow.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sunrise.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/weather/image_sunrise.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_sunset.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/weather/image_sunset.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_sun_cloud.cpp</name>

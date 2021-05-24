@@ -27,6 +27,9 @@ void Model::tick()
         weatherForecast.feels_like += 0.2;
         weatherForecast.humidity = (weatherForecast.humidity + 1) % 100;
         weatherForecast.pressure++;
+        weatherForecast.wind_speed += 0.1;
+        weatherForecast.sunset++;
+        weatherForecast.sunrise++;
 
 
         //////

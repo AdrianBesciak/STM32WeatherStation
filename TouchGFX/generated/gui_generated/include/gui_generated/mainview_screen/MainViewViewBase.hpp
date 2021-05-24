@@ -66,6 +66,10 @@ protected:
     touchgfx::ScalableImage scalableImage1;
     touchgfx::TextAreaWithOneWildcard currentTempValue;
     touchgfx::TextArea currentTempText;
+    touchgfx::ScalableImage sunrise;
+    touchgfx::ScalableImage sunset;
+    touchgfx::TextAreaWithOneWildcard sunsetText;
+    touchgfx::TextAreaWithOneWildcard sunriseText;
 
     /*
      * Wildcard Buffers
@@ -86,6 +90,10 @@ protected:
     touchgfx::Unicode::UnicodeChar descBuffer[DESC_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 16;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
+    static const uint16_t SUNSETTEXT_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar sunsetTextBuffer[SUNSETTEXT_SIZE];
+    static const uint16_t SUNRISETEXT_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar sunriseTextBuffer[SUNRISETEXT_SIZE];
 
 private:
 

@@ -14,6 +14,7 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE =
     0, // T_tempInsideText
     56, // T_tempOWM
     22, // T_SingleUseId4
-    38, // T_SingleUseId7
-    47  // T_SingleUseId8
+    47, // T_SingleUseId7
+    38, // T_SingleUseId8
+    56  // T_weatherDesc
 };

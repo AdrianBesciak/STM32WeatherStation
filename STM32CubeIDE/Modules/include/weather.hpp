@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <ctime>
 
 typedef enum Weather_t {
     CLEAR = 0,
@@ -24,7 +25,8 @@ typedef struct weather_t {
     uint32_t humidity;                          // %
     uint32_t visibility;                        // m
     double wind_speed;                          // m/s
-    uint32_t sunrise, sunset;                   // linux timestamp
+    time_t sunrise;                             // linux timestamp
+    time_t sunset;                              // linux timestamp
     Weather_t status;                           // enum status
     char main[MAX_MAIN_NAME];                   // main weather text
     char desc[MAX_DESCRIPTION_LEN];	            // in PL

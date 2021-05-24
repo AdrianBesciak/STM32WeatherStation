@@ -10,10 +10,10 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     switch (typography)
     {
     case Typography::DEFAULT:
-        // verdanab_27_4bpp
+        // verdanab_26_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[0]);
     case Typography::TEMPERATURE_WILDCARD:
-        // verdanab_29_4bpp
+        // verdanab_28_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
     case Typography::SMALL_FONT:
         // verdana_25_4bpp
@@ -21,6 +21,9 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     case Typography::OWM_STYLE:
         // verdana_25_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[2]);
+    case Typography::OWM_STYLE_20:
+        // verdana_20_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
     default:
         return 0;
     }
