@@ -21,9 +21,19 @@ void MainViewView::updateTemperatureText(float temp){
 	currentTempValue.invalidate();
 }
 
-void MainViewView::updateOWMText(double temp) {
-    Unicode::snprintfFloat(currentOWMtempBuffer, MainViewView::CURRENTOWMTEMP_SIZE, "%2.2f°C", temp);
+void MainViewView::updateTexts(weather_t* w) {
+    Unicode::snprintfFloat(currentOWMtempBuffer, MainViewView::CURRENTOWMTEMP_SIZE, "%2.2f°C", w->temperature);
     currentOWMtemp.invalidate();
+
+    Unicode::snprintfFloat(currentOWMfeelsBuffer, CURRENTOWMFEELS_SIZE, "%2.2f°C", w->feels_like);
+    currentOWMfeels.invalidate();
+
+    Unicode::snprintf(humidityTextBuffer, HUMIDITYTEXT_SIZE, "%u%", w->humidity);
+    humidityText.invalidate();
+
+    Unicode::snprintf(pressureTextBuffer, PRESSURETEXT_SIZE, "%uhPa", w->pressure);
+    pressureText.invalidate();
+
 }
 
 void MainViewView::updateWeather(weather_t* weather){
@@ -37,7 +47,7 @@ void MainViewView::updateWeather(weather_t* weather){
     newIcon->setVisible(true);
     newIcon->invalidate();
 
-    updateOWMText(weather->temperature);
+    updateTexts(weather);
 
     prevWeatherIcon = newIcon;
 }

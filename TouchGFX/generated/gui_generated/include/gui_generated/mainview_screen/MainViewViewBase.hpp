@@ -11,8 +11,8 @@
 #include <touchgfx/containers/SwipeContainer.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 
 class MainViewViewBase : public touchgfx::View<MainViewPresenter>
@@ -46,7 +46,15 @@ protected:
     touchgfx::Image sun_rain;
     touchgfx::Image sun_rain_thunder;
     touchgfx::Image thunder;
+    touchgfx::ScalableImage owm_temp;
     touchgfx::TextAreaWithOneWildcard currentOWMtemp;
+    touchgfx::TextAreaWithOneWildcard currentOWMfeels;
+    touchgfx::TextArea current_text_desc;
+    touchgfx::TextArea current_text_desc_1;
+    touchgfx::ScalableImage hum;
+    touchgfx::TextAreaWithOneWildcard humidityText;
+    touchgfx::ScalableImage pressureimg;
+    touchgfx::TextAreaWithOneWildcard pressureText;
     touchgfx::Container centerScreen;
     touchgfx::Image bgCenter;
     touchgfx::Container rightScreen;
@@ -60,6 +68,12 @@ protected:
      */
     static const uint16_t CURRENTOWMTEMP_SIZE = 16;
     touchgfx::Unicode::UnicodeChar currentOWMtempBuffer[CURRENTOWMTEMP_SIZE];
+    static const uint16_t CURRENTOWMFEELS_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar currentOWMfeelsBuffer[CURRENTOWMFEELS_SIZE];
+    static const uint16_t HUMIDITYTEXT_SIZE = 8;
+    touchgfx::Unicode::UnicodeChar humidityTextBuffer[HUMIDITYTEXT_SIZE];
+    static const uint16_t PRESSURETEXT_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar pressureTextBuffer[PRESSURETEXT_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 16;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
 

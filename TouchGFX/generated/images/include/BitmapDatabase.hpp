@@ -15,17 +15,20 @@ const uint16_t BITMAP_CLOUD_ID = 5;
 const uint16_t BITMAP_DRIZZLE_ID = 6;
 const uint16_t BITMAP_FULL_SUN_ID = 7;
 const uint16_t BITMAP_HAZE_ID = 8;
-const uint16_t BITMAP_PAGEINDICATOR_ID = 9;
-const uint16_t BITMAP_PAGEINDICATOR_HIGHLIGHT_ID = 10;
-const uint16_t BITMAP_RAIN_ID = 11;
-const uint16_t BITMAP_RAIN_THUNDER_ID = 12;
-const uint16_t BITMAP_SNOW_ID = 13;
-const uint16_t BITMAP_SUN_CLOUD_ID = 14;
-const uint16_t BITMAP_SUN_CLOUD_HAZE_ID = 15;
-const uint16_t BITMAP_SUN_RAIN_ID = 16;
-const uint16_t BITMAP_SUN_RAIN_THUNDER_ID = 17;
-const uint16_t BITMAP_TEMPERATURE_ICON_ID = 18;
-const uint16_t BITMAP_THUNDER_ID = 19;
+const uint16_t BITMAP_HUMIDITY_ID = 9;
+const uint16_t BITMAP_OWM_TEMP_ID = 10;
+const uint16_t BITMAP_PAGEINDICATOR_ID = 11;
+const uint16_t BITMAP_PAGEINDICATOR_HIGHLIGHT_ID = 12;
+const uint16_t BITMAP_PRESSURE2_ID = 13;
+const uint16_t BITMAP_RAIN_ID = 14;
+const uint16_t BITMAP_RAIN_THUNDER_ID = 15;
+const uint16_t BITMAP_SNOW_ID = 16;
+const uint16_t BITMAP_SUN_CLOUD_ID = 17;
+const uint16_t BITMAP_SUN_CLOUD_HAZE_ID = 18;
+const uint16_t BITMAP_SUN_RAIN_ID = 19;
+const uint16_t BITMAP_SUN_RAIN_THUNDER_ID = 20;
+const uint16_t BITMAP_TEMPERATURE_ICON_ID = 21;
+const uint16_t BITMAP_THUNDER_ID = 22;
 
 namespace BitmapDatabase
 {

@@ -85,13 +85,64 @@ MainViewViewBase::MainViewViewBase()
     thunder.setBitmap(touchgfx::Bitmap(BITMAP_THUNDER_ID));
     leftScreen.add(thunder);
 
-    currentOWMtemp.setPosition(166, 12, 262, 34);
+    owm_temp.setBitmap(touchgfx::Bitmap(BITMAP_OWM_TEMP_ID));
+    owm_temp.setPosition(194, 3, 33, 81);
+    owm_temp.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    leftScreen.add(owm_temp);
+
+    currentOWMtemp.setPosition(370, 12, 104, 28);
     currentOWMtemp.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentOWMtemp.setLinespacing(0);
-    Unicode::snprintf(currentOWMtempBuffer, CURRENTOWMTEMP_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID5).getText());
+    currentOWMtempBuffer[0] = 0;
     currentOWMtemp.setWildcard(currentOWMtempBuffer);
     currentOWMtemp.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     leftScreen.add(currentOWMtemp);
+
+    currentOWMfeels.setPosition(370, 46, 104, 26);
+    currentOWMfeels.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    currentOWMfeels.setLinespacing(0);
+    currentOWMfeelsBuffer[0] = 0;
+    currentOWMfeels.setWildcard(currentOWMfeelsBuffer);
+    currentOWMfeels.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    leftScreen.add(currentOWMfeels);
+
+    current_text_desc.setPosition(236, 12, 128, 28);
+    current_text_desc.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    current_text_desc.setLinespacing(0);
+    current_text_desc.setTypedText(touchgfx::TypedText(T_SINGLEUSEID7));
+    leftScreen.add(current_text_desc);
+
+    current_text_desc_1.setPosition(236, 46, 128, 26);
+    current_text_desc_1.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    current_text_desc_1.setLinespacing(0);
+    current_text_desc_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID8));
+    leftScreen.add(current_text_desc_1);
+
+    hum.setBitmap(touchgfx::Bitmap(BITMAP_HUMIDITY_ID));
+    hum.setPosition(185, 84, 51, 52);
+    hum.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    leftScreen.add(hum);
+
+    humidityText.setPosition(246, 96, 118, 28);
+    humidityText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    humidityText.setLinespacing(0);
+    humidityTextBuffer[0] = 0;
+    humidityText.setWildcard(humidityTextBuffer);
+    humidityText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    leftScreen.add(humidityText);
+
+    pressureimg.setBitmap(touchgfx::Bitmap(BITMAP_PRESSURE2_ID));
+    pressureimg.setPosition(185, 136, 51, 48);
+    pressureimg.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    leftScreen.add(pressureimg);
+
+    pressureText.setPosition(246, 146, 118, 27);
+    pressureText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    pressureText.setLinespacing(0);
+    pressureTextBuffer[0] = 0;
+    pressureText.setWildcard(pressureTextBuffer);
+    pressureText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    leftScreen.add(pressureText);
     swipeContainer1.add(leftScreen);
 
     centerScreen.setWidth(480);

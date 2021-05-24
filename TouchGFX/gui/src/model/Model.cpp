@@ -24,6 +24,15 @@ void Model::tick()
 	    //FIXME: remove this, only for testing
 	    weatherForecast.status = static_cast<Weather_t>((weatherForecast.status + 1) % 5);
         weatherForecast.temperature += 0.1;
+        weatherForecast.feels_like += 0.2;
+        weatherForecast.humidity = (weatherForecast.humidity + 1) % 100;
+        weatherForecast.pressure++;
+
+
+        //////
+
+
+
 
 		modelListener->weatherChanged(&weatherForecast);
 	}

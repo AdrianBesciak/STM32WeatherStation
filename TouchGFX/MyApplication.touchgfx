@@ -216,6 +216,23 @@
                     "Moveable": false
                   },
                   {
+                    "Type": "ScalableImage",
+                    "Filename": "weather\\owm_temp.png",
+                    "Alpha": 255,
+                    "ScalingAlgorithm": "Nearest-neighbor",
+                    "Name": "owm_temp",
+                    "X": 194,
+                    "Y": 3,
+                    "Width": 33,
+                    "Height": 81,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
                     "Type": "TextArea",
                     "TextId": "tempOWM",
                     "TextRotation": "0",
@@ -228,15 +245,180 @@
                     "AutoSize": false,
                     "LineSpacing": 0,
                     "Wildcard1": {
-                      "TextId": "SingleUseId5",
                       "UseBuffer": true,
                       "BufferSize": 16
                     },
                     "Name": "currentOWMtemp",
-                    "X": 166,
+                    "X": 370,
                     "Y": 12,
-                    "Width": 262,
-                    "Height": 34,
+                    "Width": 104,
+                    "Height": 28,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "tempOWM",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "UseBuffer": true,
+                      "BufferSize": 16
+                    },
+                    "Name": "currentOWMfeels",
+                    "X": 370,
+                    "Y": 46,
+                    "Width": 104,
+                    "Height": 26,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "SingleUseId7",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Name": "current_text_desc",
+                    "X": 236,
+                    "Y": 12,
+                    "Width": 128,
+                    "Height": 28,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "SingleUseId8",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Name": "current_text_desc_1",
+                    "X": 236,
+                    "Y": 46,
+                    "Width": 128,
+                    "Height": 26,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "ScalableImage",
+                    "Filename": "weather\\humidity.png",
+                    "Alpha": 255,
+                    "ScalingAlgorithm": "Nearest-neighbor",
+                    "Name": "hum",
+                    "X": 185,
+                    "Y": 84,
+                    "Width": 51,
+                    "Height": 52,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "tempOWM",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "UseBuffer": true,
+                      "BufferSize": 8
+                    },
+                    "Name": "humidityText",
+                    "X": 246,
+                    "Y": 96,
+                    "Width": 118,
+                    "Height": 28,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "ScalableImage",
+                    "Filename": "weather\\pressure2.png",
+                    "Alpha": 255,
+                    "ScalingAlgorithm": "Nearest-neighbor",
+                    "Name": "pressureimg",
+                    "X": 185,
+                    "Y": 136,
+                    "Width": 51,
+                    "Height": 48,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "tempOWM",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "UseBuffer": true,
+                      "BufferSize": 16
+                    },
+                    "Name": "pressureText",
+                    "X": 246,
+                    "Y": 146,
+                    "Width": 118,
+                    "Height": 27,
                     "Visible": true,
                     "LockPosition": false,
                     "Draggable": false,
@@ -445,7 +627,11 @@
         "IsResource": false
       },
       {
-        "TextEntryId": "SingleUseId5",
+        "TextEntryId": "SingleUseId7",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId8",
         "IsResource": false
       }
     ],

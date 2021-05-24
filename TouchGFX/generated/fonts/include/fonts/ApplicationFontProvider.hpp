@@ -14,14 +14,18 @@ namespace touchgfx
 struct Typography
 {
     static const touchgfx::FontId DEFAULT = 0;
-    static const touchgfx::FontId WILDCARD = 1;
+    static const touchgfx::FontId TEMPERATURE_WILDCARD = 1;
+    static const touchgfx::FontId SMALL_FONT = 2;
+    static const touchgfx::FontId OWM_STYLE = 3;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0;  // verdanab_28_4bpp
-    static const touchgfx::FontId WILDCARD = 1; // verdanab_30_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 2;
+    static const touchgfx::FontId DEFAULT = 0;              // verdanab_27_4bpp
+    static const touchgfx::FontId TEMPERATURE_WILDCARD = 1; // verdanab_29_4bpp
+    static const touchgfx::FontId SMALL_FONT = 2;           // verdana_25_4bpp
+    static const touchgfx::FontId OWM_STYLE = 2;            // verdana_25_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 3;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

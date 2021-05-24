@@ -144,6 +144,6 @@ void internetConnectionThread(void const *arguments) {
     while (1) {
 //        printf("Internet Connection Thread infinite loop\n");
         pullDataFromOWMServer();
-        vTaskDelay(10000);
+        vTaskDelay(30'000);
     }
 }
