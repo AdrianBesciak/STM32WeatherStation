@@ -1,7 +1,7 @@
 #include <gui/model/Model.hpp>
 #include <gui/model/ModelListener.hpp>
 #include "ds18b20.hpp"
-#include "weather.h"
+#include "weather.hpp"
 
 Model::Model() : modelListener(nullptr), tick_count(0)
 {

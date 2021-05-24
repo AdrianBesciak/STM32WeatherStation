@@ -28,9 +28,9 @@
 #include <stm32746g_discovery_qspi.h>
 #include <stdio.h>
 #include "ansi.h"
-#include <lib_ds18b20.h>
+#include "lib_ds18b20.h"
 #include <task.h>
-#include <ethernet.h>
+#include <ethernet.hpp>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/

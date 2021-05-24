@@ -3,7 +3,7 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
-#include "weather.h"
+#include "weather.hpp"
 
 using namespace touchgfx;
 

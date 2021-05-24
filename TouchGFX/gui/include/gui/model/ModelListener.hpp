@@ -2,7 +2,7 @@
 #define MODELLISTENER_HPP
 
 #include <gui/model/Model.hpp>
-#include "weather.h"
+#include "weather.hpp"
 
 class ModelListener
 {

@@ -12,9 +12,9 @@ typedef enum Weather_t {
     THUNDERSTORM
 } Weather_t;
 
-#define MAX_DESCRIPTION_LEN     64
-#define MAX_CITY_NAME           64
-#define MAX_MAIN_NAME           64
+constexpr uint32_t MAX_DESCRIPTION_LEN =    64;
+constexpr uint32_t MAX_CITY_NAME =          64;
+constexpr uint32_t MAX_MAIN_NAME =          64;
 
 typedef struct weather_t {
     double lon, lat;                            // coords
@@ -34,5 +34,4 @@ typedef struct weather_t {
 
 extern weather_t weatherForecast;
 
-Weather_t getMainWeather(const char * data);
-float getFloatValue(const char * data);
+Weather_t translate_main_to_enum(const char * data);
