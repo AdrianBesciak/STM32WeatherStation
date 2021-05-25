@@ -7,6 +7,7 @@
 #include <texts/TextKeysAndLanguages.hpp>
 
 MainViewBase::MainViewBase() :
+    buttonCallback(this, &MainViewBase::buttonCallbackHandler),
     flexButtonCallback(this, &MainViewBase::flexButtonCallbackHandler)
 {
 
@@ -194,6 +195,22 @@ MainViewBase::MainViewBase() :
     inputButton.setPosition(169, 81, 290, 50);
     inputButton.setAction(flexButtonCallback);
     centerScreen.add(inputButton);
+
+    inputField.setPosition(179, 93, 273, 30);
+    inputField.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    inputField.setLinespacing(0);
+    Unicode::snprintf(inputFieldBuffer, INPUTFIELD_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID13).getText());
+    inputField.setWildcard(inputFieldBuffer);
+    inputField.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
+    centerScreen.add(inputField);
+
+    checkWeatherButton.setXY(148, 150);
+    checkWeatherButton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_PRESSED_ID));
+    checkWeatherButton.setLabelText(touchgfx::TypedText(T_SINGLEUSEID14));
+    checkWeatherButton.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    checkWeatherButton.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    checkWeatherButton.setAction(buttonCallback);
+    centerScreen.add(checkWeatherButton);
     swipeContainer1.add(centerScreen);
 
     rightScreen.setWidth(480);
@@ -263,16 +280,8 @@ MainViewBase::MainViewBase() :
     swipeContainer1.add(rightScreen);
     swipeContainer1.setSelectedPage(1);
 
-    inputField.setPosition(174, 93, 278, 30);
-    inputField.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    inputField.setLinespacing(0);
-    Unicode::snprintf(inputFieldBuffer, INPUTFIELD_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID13).getText());
-    inputField.setWildcard(inputFieldBuffer);
-    inputField.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
-
     add(__background);
     add(swipeContainer1);
-    add(inputField);
 }
 
 void MainViewBase::setupScreen()
@@ -283,6 +292,17 @@ void MainViewBase::setupScreen()
     //Call on_screen_update
     on_screen_update();
 
+}
+
+void MainViewBase::buttonCallbackHandler(const touchgfx::AbstractButton& src)
+{
+    if (&src == &checkWeatherButton)
+    {
+        //GetNewWeather
+        //When checkWeatherButton clicked call virtual function
+        //Call get_new_weather
+        get_new_weather();
+    }
 }
 
 void MainViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src)

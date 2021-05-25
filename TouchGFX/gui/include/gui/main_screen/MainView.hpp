@@ -24,6 +24,8 @@ public:
 
     void on_screen_update() override;
 
+    void get_new_weather() override;
+
     touchgfx::Image* selectIcon(Weather_t status);
 protected:
     touchgfx::Image* prevWeatherIcon;

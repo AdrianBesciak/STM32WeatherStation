@@ -632,6 +632,65 @@
                     "Clickable": false,
                     "Fadeable": false,
                     "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "weatherDesc",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "TextId": "SingleUseId13",
+                      "UseBuffer": true,
+                      "BufferSize": 64
+                    },
+                    "Name": "inputField",
+                    "X": 179,
+                    "Y": 93,
+                    "Width": 273,
+                    "Height": 30,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "ButtonWithLabel",
+                    "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
+                    "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
+                    "Alpha": 255,
+                    "TextId": "SingleUseId14",
+                    "ReleasedColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "PressedColor": {
+                      "Red": 255,
+                      "Green": 255,
+                      "Blue": 255
+                    },
+                    "TextRotation": "0",
+                    "Style": "Style4",
+                    "Name": "checkWeatherButton",
+                    "X": 148,
+                    "Y": 150,
+                    "Width": 170,
+                    "Height": 60,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
                   }
                 ],
                 "Type": "Container",
@@ -908,35 +967,6 @@
             "Clickable": false,
             "Fadeable": false,
             "Moveable": false
-          },
-          {
-            "Type": "TextArea",
-            "TextId": "weatherDesc",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 0,
-              "Green": 0,
-              "Blue": 0
-            },
-            "Alpha": 255,
-            "AutoSize": false,
-            "LineSpacing": 0,
-            "Wildcard1": {
-              "TextId": "SingleUseId13",
-              "UseBuffer": true,
-              "BufferSize": 64
-            },
-            "Name": "inputField",
-            "X": 174,
-            "Y": 93,
-            "Width": 278,
-            "Height": 30,
-            "Visible": true,
-            "LockPosition": false,
-            "Draggable": false,
-            "Clickable": false,
-            "Fadeable": false,
-            "Moveable": false
           }
         ],
         "Interactions": [
@@ -963,6 +993,18 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "on_screen_update"
+            }
+          },
+          {
+            "InteractionName": "GetNewWeather",
+            "HasCompletedTrigger": false,
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "checkWeatherButton"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "get_new_weather"
             }
           }
         ],
@@ -1163,6 +1205,10 @@
       },
       {
         "TextEntryId": "SingleUseId13",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId14",
         "IsResource": false
       }
     ],

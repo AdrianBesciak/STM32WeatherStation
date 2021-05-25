@@ -15,6 +15,7 @@ void dhcp_get_address() {
     printf("Got IP addr: %s\n", ipaddr_ntoa(&gnetif.ip_addr));
 }
 
+//TODO: handle errors (display on screen)
 void parse_OWM_data(const char *data) {
     printf("parse_OWM_data. data length: %i\n", strlen(data));
 

@@ -112,7 +112,9 @@ KEEP extern const touchgfx::GlyphNode glyphs_RobotoCondensed_Regular_20_4bpp[] F
     {  6247, 0x00BF,   9,  15,  11,   0,   9,   0,   0, 0x00 },
     {  6322, 0x00D7,   9,  10,  12,   0,  10,   0,   0, 0x00 },
     {  6372, 0x00F7,   9,  10,  12,   0,  10,   0,   0, 0x00 },
-    {     0, 0x201D,   6,   6,  16,   0,   6,  95,   5, 0x00 },
+    {  6422, 0x0119,   9,  15,  11,   0,   9,  95,   2, 0x00 },
+    {  6497, 0x017A,   8,  15,  15,   0,   8,  97,   1, 0x00 },
+    {     0, 0x201D,   6,   6,  16,   0,   6,  98,   5, 0x00 },
     {    18, 0x2022,   5,   5,  10,   1,   6,   0,   0, 0x00 },
     {    33, 0x20AC,   9,  15,  15,   0,   9,   0,   0, 0x00 }
 };
@@ -135,6 +137,6 @@ touchgfx::GeneratedFont& getFont_RobotoCondensed_Regular_20_4bpp();
 
 touchgfx::GeneratedFont& getFont_RobotoCondensed_Regular_20_4bpp()
 {
-    static touchgfx::GeneratedFont RobotoCondensed_Regular_20_4bpp(glyphs_RobotoCondensed_Regular_20_4bpp, 110, 20, 5, 4, 1, 1, 1, unicodes_RobotoCondensed_Regular_20_4bpp, kerning_RobotoCondensed_Regular_20_4bpp, 63, 0, 0);
+    static touchgfx::GeneratedFont RobotoCondensed_Regular_20_4bpp(glyphs_RobotoCondensed_Regular_20_4bpp, 112, 20, 5, 4, 1, 1, 1, unicodes_RobotoCondensed_Regular_20_4bpp, kerning_RobotoCondensed_Regular_20_4bpp, 63, 0, 0);
     return RobotoCondensed_Regular_20_4bpp;
 }

@@ -15,6 +15,7 @@
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
+#include <touchgfx/widgets/ButtonWithLabel.hpp>
 
 class MainViewBase : public touchgfx::View<MainPresenter>
 {
@@ -27,6 +28,11 @@ public:
      * Virtual Action Handlers
      */
     virtual void on_screen_update()
+    {
+        // Override and implement this function in Main
+    }
+
+    virtual void get_new_weather()
     {
         // Override and implement this function in Main
     }
@@ -72,6 +78,8 @@ protected:
     touchgfx::Image bgCenter;
     touchgfx::TextArea cityNameFieldLabel;
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > inputButton;
+    touchgfx::TextAreaWithOneWildcard inputField;
+    touchgfx::ButtonWithLabel checkWeatherButton;
     touchgfx::Container rightScreen;
     touchgfx::Image bgRight;
     touchgfx::ScalableImage temperatureIcon;
@@ -83,7 +91,6 @@ protected:
     touchgfx::TextAreaWithOneWildcard sunriseText;
     touchgfx::ScalableImage visibilityIcon;
     touchgfx::TextAreaWithOneWildcard visibilityText;
-    touchgfx::TextAreaWithOneWildcard inputField;
 
     /*
      * Wildcard Buffers
@@ -102,6 +109,8 @@ protected:
     touchgfx::Unicode::UnicodeChar citynametextBuffer[CITYNAMETEXT_SIZE];
     static const uint16_t DESC_SIZE = 64;
     touchgfx::Unicode::UnicodeChar descBuffer[DESC_SIZE];
+    static const uint16_t INPUTFIELD_SIZE = 64;
+    touchgfx::Unicode::UnicodeChar inputFieldBuffer[INPUTFIELD_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 32;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
     static const uint16_t SUNSETTEXT_SIZE = 16;
@@ -110,19 +119,19 @@ protected:
     touchgfx::Unicode::UnicodeChar sunriseTextBuffer[SUNRISETEXT_SIZE];
     static const uint16_t VISIBILITYTEXT_SIZE = 16;
     touchgfx::Unicode::UnicodeChar visibilityTextBuffer[VISIBILITYTEXT_SIZE];
-    static const uint16_t INPUTFIELD_SIZE = 64;
-    touchgfx::Unicode::UnicodeChar inputFieldBuffer[INPUTFIELD_SIZE];
 
 private:
 
     /*
      * Callback Declarations
      */
+    touchgfx::Callback<MainViewBase, const touchgfx::AbstractButton&> buttonCallback;
     touchgfx::Callback<MainViewBase, const touchgfx::AbstractButtonContainer&> flexButtonCallback;
 
     /*
      * Callback Handler Declarations
      */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
     void flexButtonCallbackHandler(const touchgfx::AbstractButtonContainer& src);
 
 };

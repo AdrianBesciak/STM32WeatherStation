@@ -1104,6 +1104,16 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/weather/image_wind_speed.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_Blue_Buttons_Round_Edge_small.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_Edge_small.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Blue_Buttons_Round_Edge_small_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_Edge_small_pressed.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_Blue_Buttons_Round_icon_button.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_icon_button.cpp</locationURI>

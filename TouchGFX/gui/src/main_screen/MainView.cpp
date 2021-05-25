@@ -106,4 +106,8 @@ void MainView::on_screen_update() {
     }
 }
 
+void MainView::get_new_weather() {
+    //TODO: get new data from API
+}
+
 
