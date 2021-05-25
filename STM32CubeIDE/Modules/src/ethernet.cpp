@@ -79,7 +79,6 @@ void parse_OWM_data(const char *data) {
     strncpy(w->main, weather_main, MAX_MAIN_NAME);
     strncpy(w->desc, weather_description, MAX_DESCRIPTION_LEN);
     strncpy(w->city, cityName, MAX_CITY_NAME);
-    w->status = translate_main_to_enum(w->main);
 
 //    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure, w->humidity);
 //    printf("visibility %0.2f wind_speed: %0.2f\n", w->visibility, w->wind_speed);

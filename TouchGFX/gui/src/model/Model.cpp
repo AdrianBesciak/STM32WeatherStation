@@ -31,7 +31,7 @@ void Model::tick(){
 		}
 	}
 
-	if(tick_count % 120 == 0){
+	if(tick_count % 60 == 0){
 //        mockData();
 
 		modelListener->weatherChanged(&weatherForecast);
