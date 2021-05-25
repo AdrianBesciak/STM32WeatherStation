@@ -33,6 +33,10 @@ public:
     Unicode::UnicodeChar* getBuffer();
     void setBufferPosition(uint16_t pos);
 
+    /**
+     * Callback handler for the caps-lock button.
+     */
+    void capslockPressedHandler();
 
 private:
     /*
@@ -100,11 +104,6 @@ private:
      * Callback handler for the backspace button.
      */
     void backspacePressedHandler();
-
-    /**
-     * Callback handler for the caps-lock button.
-     */
-    void capslockPressedHandler();
 
     /**
      * Callback handler for the mode button.

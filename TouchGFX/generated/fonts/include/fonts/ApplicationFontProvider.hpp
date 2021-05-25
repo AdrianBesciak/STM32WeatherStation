@@ -34,7 +34,7 @@ struct TypographyFontIndex
     static const touchgfx::FontId DISPLAY = 4;              // RobotoCondensed_Regular_28_4bpp
     static const touchgfx::FontId KEYBOARD = 5;             // RobotoCondensed_Regular_20_4bpp
     static const touchgfx::FontId MODE = 6;                 // RobotoCondensed_Regular_24_4bpp
-    static const touchgfx::FontId BUTTON_LABELS = 7;        // verdana_10_4bpp
+    static const touchgfx::FontId BUTTON_LABELS = 7;        // verdanab_12_4bpp
     static const uint16_t NUMBER_OF_FONTS = 8;
 };
 

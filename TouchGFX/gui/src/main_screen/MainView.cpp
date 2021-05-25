@@ -6,6 +6,7 @@ MainView::MainView() : prevWeatherIcon(nullptr)
 {
     desc.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
     currentTempText.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
+    checkWeatherButton.setTouchable(false);
 }
 
 void MainView::setupScreen()
@@ -103,7 +104,11 @@ void MainView::on_screen_update() {
     if(Unicode::strlen(MainView::keyboardBuffer) > 0){
         Unicode::strncpy(inputFieldBuffer, MainView::keyboardBuffer, INPUTFIELD_SIZE);
         inputField.invalidate();
+        checkWeatherButton.setTouchable(true);
+    }else{
+        checkWeatherButton.setTouchable(false);
     }
+    checkWeatherButton.invalidate();
 }
 
 void MainView::get_new_weather() {

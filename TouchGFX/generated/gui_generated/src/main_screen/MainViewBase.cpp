@@ -183,7 +183,7 @@ MainViewBase::MainViewBase() :
     bgCenter.setBitmap(touchgfx::Bitmap(BITMAP_BGCENTER_ID));
     centerScreen.add(bgCenter);
 
-    cityNameFieldLabel.setPosition(19, 72, 128, 75);
+    cityNameFieldLabel.setPosition(30, 89, 115, 34);
     cityNameFieldLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     cityNameFieldLabel.setLinespacing(0);
     cityNameFieldLabel.setTypedText(touchgfx::TypedText(T_SINGLEUSEID12));
@@ -192,11 +192,11 @@ MainViewBase::MainViewBase() :
     inputButton.setBoxWithBorderPosition(0, 0, 290, 50);
     inputButton.setBorderSize(1);
     inputButton.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255), touchgfx::Color::getColorFrom24BitRGB(129, 135, 137), touchgfx::Color::getColorFrom24BitRGB(0, 0, 0), touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    inputButton.setPosition(169, 81, 290, 50);
+    inputButton.setPosition(148, 81, 290, 50);
     inputButton.setAction(flexButtonCallback);
     centerScreen.add(inputButton);
 
-    inputField.setPosition(179, 93, 273, 30);
+    inputField.setPosition(157, 93, 273, 30);
     inputField.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     inputField.setLinespacing(0);
     Unicode::snprintf(inputFieldBuffer, INPUTFIELD_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID13).getText());
@@ -204,7 +204,7 @@ MainViewBase::MainViewBase() :
     inputField.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
     centerScreen.add(inputField);
 
-    checkWeatherButton.setXY(148, 150);
+    checkWeatherButton.setXY(155, 142);
     checkWeatherButton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_PRESSED_ID));
     checkWeatherButton.setLabelText(touchgfx::TypedText(T_SINGLEUSEID14));
     checkWeatherButton.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));

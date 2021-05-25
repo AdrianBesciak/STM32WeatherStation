@@ -34,7 +34,7 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
         // RobotoCondensed_Regular_24_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[6]);
     case Typography::BUTTON_LABELS:
-        // verdana_10_4bpp
+        // verdanab_12_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[7]);
     default:
         return 0;

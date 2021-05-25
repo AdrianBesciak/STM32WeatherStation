@@ -27,7 +27,10 @@ void KeyboardView::copy_keyboard_text() {
 
 void KeyboardView::set_keyboard_text() {
     Unicode::UnicodeChar *buffer = keyboard.getBuffer();
-    Unicode::strncpy(buffer, MainView::keyboardBuffer, MainView::MAX_CITY_NAME_LEN);
-    keyboard.setBufferPosition(Unicode::strlen(buffer));
+    if(Unicode::strlen(MainView::keyboardBuffer) > 0){
+        Unicode::strncpy(buffer, MainView::keyboardBuffer, MainView::MAX_CITY_NAME_LEN);
+        keyboard.setBufferPosition(Unicode::strlen(buffer));
+        keyboard.capslockPressedHandler(); //if we have something in buffer then switch to lowercase
+    }
 }
 

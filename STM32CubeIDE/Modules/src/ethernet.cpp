@@ -71,7 +71,7 @@ void cleanup_socket(int sock){
 
 void get_OWM_data() {
     parse_OWM_data(
-            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"ąłżźćsdasadd aasd asd\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temperature\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
+            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"ąłżźćsdasadd aasd asd\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temp\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
     );
     return;
 
@@ -129,7 +129,9 @@ void get_OWM_data() {
     parse_OWM_data(recv_buffer);
 }
 
-void internetConnectionThread(void const *arguments) {
+void internetConnectionThread(void *arguments) {
+    const char *defaultCity = "Krakow";
+
     MX_LWIP_Init();
 
     printf("Internet Connection Thread started\n");

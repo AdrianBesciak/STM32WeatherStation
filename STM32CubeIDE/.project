@@ -804,6 +804,11 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_RobotoCondensed_Regular_28_4bpp_4.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Font_verdanab_12_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_12_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Font_verdanab_26_4bpp_0.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_26_4bpp_0.cpp</locationURI>
@@ -812,11 +817,6 @@
 			<name>Application/User/generated/Font_verdanab_28_4bpp_0.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdanab_28_4bpp_0.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/Font_verdana_10_4bpp_0.cpp</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Font_verdana_10_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Font_verdana_20_4bpp_0.cpp</name>
@@ -849,6 +849,11 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_RobotoCondensed_Regular_28_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Kerning_verdanab_12_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_12_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Kerning_verdanab_26_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_26_4bpp.cpp</locationURI>
@@ -857,11 +862,6 @@
 			<name>Application/User/generated/Kerning_verdanab_28_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdanab_28_4bpp.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/Kerning_verdana_10_4bpp.cpp</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Kerning_verdana_10_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Kerning_verdana_20_4bpp.cpp</name>
@@ -889,6 +889,11 @@
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_RobotoCondensed_Regular_28_4bpp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/Table_verdanab_12_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_12_4bpp.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/Table_verdanab_26_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_26_4bpp.cpp</locationURI>
@@ -897,11 +902,6 @@
 			<name>Application/User/generated/Table_verdanab_28_4bpp.cpp</name>
 			<type>1</type>
 			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdanab_28_4bpp.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/Table_verdana_10_4bpp.cpp</name>
-			<type>1</type>
-			<locationURI>$%7BPARENT-1-PROJECT_LOC%7D/TouchGFX/generated/fonts/src/Table_verdana_10_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_verdana_20_4bpp.cpp</name>

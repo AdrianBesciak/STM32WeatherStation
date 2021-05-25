@@ -12,7 +12,7 @@ extern "C" {
 #include "lwip.h"
 #include "cmsis_os.h"
 
-_Noreturn void internetConnectionThread(void const * arguments);
+_Noreturn void internetConnectionThread(void * arguments);
 
 
 #ifdef __cplusplus
