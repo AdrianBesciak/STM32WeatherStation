@@ -22,9 +22,7 @@ void mockData(){
 //    weatherForecast.error = static_cast<Weather_Error_t>((weatherForecast.error + 1) % (RECV_EMPTY + 1));
 }
 
-void Model::tick()
-{
-
+void Model::tick(){
 	if(tick_count % 60 == 0){
 		const auto& t = thermometers[0];
 		if(t.isValid()){

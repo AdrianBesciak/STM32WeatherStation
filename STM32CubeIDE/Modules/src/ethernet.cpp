@@ -20,7 +20,6 @@ void dhcp_get_address() {
 
 void urlencode(const char* originalText)
 {
-    // allocate memory for the worst possible case (all characters need to be encoded)
     memset(cityNameBufferEscaped, 0, sizeof(cityNameBufferEscaped));
 
     const char *hex = "0123456789abcdef";
@@ -41,7 +40,6 @@ void urlencode(const char* originalText)
     cityNameBufferEscaped[pos] = '\0';
 }
 
-//TODO: handle errors (display on screen)
 void parse_OWM_data(const char *data) {
     printf("parse_OWM_data. data length: %i\n", strlen(data));
 
@@ -81,14 +79,14 @@ void parse_OWM_data(const char *data) {
     strncpy(w->main, weather_main, MAX_MAIN_NAME);
     strncpy(w->desc, weather_description, MAX_DESCRIPTION_LEN);
     strncpy(w->city, cityName, MAX_CITY_NAME);
+    w->status = translate_main_to_enum(w->main);
 
-    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure,
-           w->humidity);
-    printf("visibility %0.2f wind_speed: %0.2f\n", w->visibility, w->wind_speed);
-    printf("sunrise: %ld | sunset: %ld\n", (long) w->sunrise, (long) w->sunset);
-    printf("city %s\n", w->city);
-    printf("weather: %s desc: %s\n", w->main, w->desc);
-    printf("-----------------------------------------\n");
+//    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure, w->humidity);
+//    printf("visibility %0.2f wind_speed: %0.2f\n", w->visibility, w->wind_speed);
+//    printf("sunrise: %ld | sunset: %ld\n", (long) w->sunrise, (long) w->sunset);
+//    printf("city %s\n", w->city);
+//    printf("weather: %s desc: %s\n", w->main, w->desc);
+//    printf("-----------------------------------------\n");
 }
 
 void cleanup_socket(int sock) {
@@ -98,7 +96,6 @@ void cleanup_socket(int sock) {
 
 int get_OWM_data(const char *location) {
     if(strlen(location) == 0){
-        printf("[get_OWM_data] Empty location\n");
         return 1;
     }
 
@@ -112,7 +109,7 @@ int get_OWM_data(const char *location) {
 
     snprintf(url, 0x100, "%s%s%s", firstPart, cityNameBufferEscaped, secondPart);
     printf("Getting data for %s\n", location);
-    printf("%s", url);
+//    printf("%s", url);
 
 //    parse_OWM_data(
 //            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"ąłżźćsdasadd aasd asd\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temp\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
@@ -167,14 +164,15 @@ int get_OWM_data(const char *location) {
     return 0;
 }
 
-void updateCityName(const char *newName) {
-    strncpy(cityNameBuffer, newName, CITY_NAME_BUFFEL_LEN);
-    xTaskAbortDelay(internetTask);     //Wake up task immediately
-}
-
 void clearStructure(){
     memset(&weatherForecast, 0, sizeof(weather_t));
     weatherForecast.error = EMPTY_LOCATION;
+}
+
+void updateCityName(const char *newName) {
+    clearStructure();
+    strncpy(cityNameBuffer, newName, CITY_NAME_BUFFEL_LEN);
+    xTaskAbortDelay(internetTask);     //Wake up task immediately
 }
 
 extern "C"
@@ -195,7 +193,6 @@ void internetConnectionThread(void *arguments) {
         weatherForecast.error = static_cast<Weather_Error_t>(res);
 
         vTaskDelay(15'000);
-        printf("After vTaskDelay\n");
     }
 }
 
