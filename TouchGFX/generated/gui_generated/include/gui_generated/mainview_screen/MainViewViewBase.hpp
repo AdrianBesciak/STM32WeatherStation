@@ -63,13 +63,15 @@ protected:
     touchgfx::Image bgCenter;
     touchgfx::Container rightScreen;
     touchgfx::Image bgRight;
-    touchgfx::ScalableImage scalableImage1;
+    touchgfx::ScalableImage temperatureIcon;
     touchgfx::TextAreaWithOneWildcard currentTempValue;
     touchgfx::TextArea currentTempText;
     touchgfx::ScalableImage sunrise;
     touchgfx::ScalableImage sunset;
     touchgfx::TextAreaWithOneWildcard sunsetText;
     touchgfx::TextAreaWithOneWildcard sunriseText;
+    touchgfx::ScalableImage visibilityIcon;
+    touchgfx::TextAreaWithOneWildcard visibilityText;
 
     /*
      * Wildcard Buffers
@@ -88,12 +90,14 @@ protected:
     touchgfx::Unicode::UnicodeChar citynametextBuffer[CITYNAMETEXT_SIZE];
     static const uint16_t DESC_SIZE = 64;
     touchgfx::Unicode::UnicodeChar descBuffer[DESC_SIZE];
-    static const uint16_t CURRENTTEMPVALUE_SIZE = 16;
+    static const uint16_t CURRENTTEMPVALUE_SIZE = 32;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
     static const uint16_t SUNSETTEXT_SIZE = 16;
     touchgfx::Unicode::UnicodeChar sunsetTextBuffer[SUNSETTEXT_SIZE];
     static const uint16_t SUNRISETEXT_SIZE = 16;
     touchgfx::Unicode::UnicodeChar sunriseTextBuffer[SUNRISETEXT_SIZE];
+    static const uint16_t VISIBILITYTEXT_SIZE = 16;
+    touchgfx::Unicode::UnicodeChar visibilityTextBuffer[VISIBILITYTEXT_SIZE];
 
 private:
 

@@ -50,7 +50,7 @@ void parse_OWM_data(const char *data) {
     w->feels_like = feels_like;
     w->pressure = (uint32_t) pressure;
     w->humidity = (uint32_t) humidity;
-    w->visibility = (uint32_t) visibility;
+    w->visibility = (uint32_t) visibility / 1000;
     w->wind_speed = wind_speed;
     w->sunrise = (time_t) (sunrise + (3600 * 2));
     w->sunset = (time_t) (sunset + (3600 * 2));

@@ -23,7 +23,7 @@ typedef struct weather_t {
     double feels_like;                          // in celsius
     uint32_t pressure;                          // hPa
     uint32_t humidity;                          // %
-    uint32_t visibility;                        // m
+    double visibility;                          // km
     double wind_speed;                          // m/s
     time_t sunrise;                             // linux timestamp
     time_t sunset;                              // linux timestamp

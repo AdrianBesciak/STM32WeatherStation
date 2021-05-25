@@ -30,6 +30,7 @@ void Model::tick()
         weatherForecast.wind_speed += 0.1;
         weatherForecast.sunset++;
         weatherForecast.sunrise++;
+        weatherForecast.visibility += 0.1;
 
 
         //////

@@ -189,23 +189,23 @@ MainViewViewBase::MainViewViewBase()
     bgRight.setBitmap(touchgfx::Bitmap(BITMAP_BGRIGHT_ID));
     rightScreen.add(bgRight);
 
-    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_OWM_TEMP_ID));
-    scalableImage1.setPosition(43, 143, 45, 106);
-    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
-    rightScreen.add(scalableImage1);
+    temperatureIcon.setBitmap(touchgfx::Bitmap(BITMAP_OWM_TEMP_ID));
+    temperatureIcon.setPosition(47, 97, 36, 89);
+    temperatureIcon.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    rightScreen.add(temperatureIcon);
 
-    currentTempValue.setPosition(136, 193, 292, 37);
+    currentTempValue.setPosition(112, 158, 114, 32);
     currentTempValue.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentTempValue.setLinespacing(0);
-    Unicode::snprintf(currentTempValueBuffer, CURRENTTEMPVALUE_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID4).getText());
+    currentTempValueBuffer[0] = 0;
     currentTempValue.setWildcard(currentTempValueBuffer);
-    currentTempValue.setTypedText(touchgfx::TypedText(T_TEMPINSIDEWILDCARD));
+    currentTempValue.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     rightScreen.add(currentTempValue);
 
-    currentTempText.setXY(92, 143);
+    currentTempText.setPosition(99, 96, 141, 61);
     currentTempText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
     currentTempText.setLinespacing(0);
-    currentTempText.setTypedText(touchgfx::TypedText(T_TEMPINSIDETEXT));
+    currentTempText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID9));
     rightScreen.add(currentTempText);
 
     sunrise.setBitmap(touchgfx::Bitmap(BITMAP_SUNRISE_ID));
@@ -233,6 +233,19 @@ MainViewViewBase::MainViewViewBase()
     sunriseText.setWildcard(sunriseTextBuffer);
     sunriseText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     rightScreen.add(sunriseText);
+
+    visibilityIcon.setBitmap(touchgfx::Bitmap(BITMAP_VISIBILITY_ID));
+    visibilityIcon.setPosition(262, 106, 73, 72);
+    visibilityIcon.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+    rightScreen.add(visibilityIcon);
+
+    visibilityText.setPosition(348, 123, 118, 27);
+    visibilityText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    visibilityText.setLinespacing(0);
+    visibilityTextBuffer[0] = 0;
+    visibilityText.setWildcard(visibilityTextBuffer);
+    visibilityText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
+    rightScreen.add(visibilityText);
     swipeContainer1.add(rightScreen);
     swipeContainer1.setSelectedPage(1);
 

@@ -598,11 +598,11 @@
                     "Filename": "weather\\owm_temp.png",
                     "Alpha": 255,
                     "ScalingAlgorithm": "Nearest-neighbor",
-                    "Name": "scalableImage1",
-                    "X": 43,
-                    "Y": 143,
-                    "Width": 45,
-                    "Height": 106,
+                    "Name": "temperatureIcon",
+                    "X": 47,
+                    "Y": 97,
+                    "Width": 36,
+                    "Height": 89,
                     "Visible": true,
                     "LockPosition": false,
                     "Draggable": false,
@@ -612,7 +612,7 @@
                   },
                   {
                     "Type": "TextArea",
-                    "TextId": "tempInsideWildcard",
+                    "TextId": "tempOWM",
                     "TextRotation": "0",
                     "Color": {
                       "Red": 0,
@@ -623,15 +623,14 @@
                     "AutoSize": false,
                     "LineSpacing": 0,
                     "Wildcard1": {
-                      "TextId": "SingleUseId4",
                       "UseBuffer": true,
-                      "BufferSize": 16
+                      "BufferSize": 32
                     },
                     "Name": "currentTempValue",
-                    "X": 136,
-                    "Y": 193,
-                    "Width": 292,
-                    "Height": 37,
+                    "X": 112,
+                    "Y": 158,
+                    "Width": 114,
+                    "Height": 32,
                     "Visible": true,
                     "LockPosition": false,
                     "Draggable": false,
@@ -641,7 +640,7 @@
                   },
                   {
                     "Type": "TextArea",
-                    "TextId": "tempInsideText",
+                    "TextId": "SingleUseId9",
                     "TextRotation": "0",
                     "Color": {
                       "Red": 0,
@@ -649,13 +648,13 @@
                       "Blue": 0
                     },
                     "Alpha": 255,
-                    "AutoSize": true,
+                    "AutoSize": false,
                     "LineSpacing": 0,
                     "Name": "currentTempText",
-                    "X": 92,
-                    "Y": 143,
-                    "Width": 380,
-                    "Height": 35,
+                    "X": 99,
+                    "Y": 96,
+                    "Width": 141,
+                    "Height": 61,
                     "Visible": true,
                     "LockPosition": false,
                     "Draggable": false,
@@ -752,6 +751,51 @@
                     "Clickable": false,
                     "Fadeable": false,
                     "Moveable": false
+                  },
+                  {
+                    "Type": "ScalableImage",
+                    "Filename": "weather\\visibility.png",
+                    "Alpha": 255,
+                    "ScalingAlgorithm": "Nearest-neighbor",
+                    "Name": "visibilityIcon",
+                    "X": 262,
+                    "Y": 106,
+                    "Width": 73,
+                    "Height": 72,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "tempOWM",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "UseBuffer": true,
+                      "BufferSize": 16
+                    },
+                    "Name": "visibilityText",
+                    "X": 348,
+                    "Y": 123,
+                    "Width": 118,
+                    "Height": 27,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
                   }
                 ],
                 "Type": "Container",
@@ -814,10 +858,6 @@
         "IsResource": true
       },
       {
-        "TextEntryId": "SingleUseId4",
-        "IsResource": false
-      },
-      {
         "TextEntryId": "SingleUseId7",
         "IsResource": false
       },
@@ -828,6 +868,10 @@
       {
         "TextEntryId": "weatherDesc",
         "IsResource": true
+      },
+      {
+        "TextEntryId": "SingleUseId9",
+        "IsResource": false
       }
     ],
     "Name": "STM32F746G_DISCO",

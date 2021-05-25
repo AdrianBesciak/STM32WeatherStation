@@ -31,7 +31,8 @@ const uint16_t BITMAP_SUNRISE_ID = 21;
 const uint16_t BITMAP_SUNSET_ID = 22;
 const uint16_t BITMAP_TEMPERATURE_ICON_ID = 23;
 const uint16_t BITMAP_THUNDER_ID = 24;
-const uint16_t BITMAP_WIND_SPEED_ID = 25;
+const uint16_t BITMAP_VISIBILITY_ID = 25;
+const uint16_t BITMAP_WIND_SPEED_ID = 26;
 
 namespace BitmapDatabase
 {

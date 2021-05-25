@@ -3,6 +3,7 @@
 MainViewView::MainViewView() : prevWeatherIcon(nullptr)
 {
     desc.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
+    currentTempText.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
 }
 
 void MainViewView::setupScreen()
@@ -52,6 +53,9 @@ void MainViewView::updateTexts(weather_t* w) {
     strftime(tempBuffer, 0x100, "%H:%M:%S", timeinfo);
     Unicode::strncpy(sunsetTextBuffer, tempBuffer, SUNSETTEXT_SIZE);
     sunsetText.invalidate();
+
+    Unicode::snprintfFloat(visibilityTextBuffer, VISIBILITYTEXT_SIZE, "%2.2fkm", w->visibility);
+    visibilityText.invalidate();
 }
 
 void MainViewView::updateWeather(weather_t* weather){
