@@ -20,8 +20,6 @@ void parse_OWM_data(const char *data) {
 
     JSON_Value *jsonValue = json_parse_string(data);
     JSON_Object *jsonObject = json_value_get_object(jsonValue);
-    double lon = json_object_dotget_number(jsonObject, "coord.lon");
-    double lat = json_object_dotget_number(jsonObject, "coord.lat");
 
     JSON_Object *main = json_object_get_object(jsonObject, "main");
     double temperature = json_object_get_number(main, "temp");
@@ -44,13 +42,11 @@ void parse_OWM_data(const char *data) {
     const char *weather_description = json_object_get_string(weather_entry, "description");
 
     weather_t *w = &weatherForecast;
-    w->lon = lon;
-    w->lat = lat;
     w->temperature = temperature;
     w->feels_like = feels_like;
     w->pressure = (uint32_t) pressure;
     w->humidity = (uint32_t) humidity;
-    w->visibility = (uint32_t) visibility / 1000;
+    w->visibility = (uint32_t) visibility / 1000.0;
     w->wind_speed = wind_speed;
     w->sunrise = (time_t) (sunrise + (3600 * 2));
     w->sunset = (time_t) (sunset + (3600 * 2));
@@ -59,9 +55,8 @@ void parse_OWM_data(const char *data) {
     strncpy(w->desc, weather_description, MAX_DESCRIPTION_LEN);
     strncpy(w->city, cityName, MAX_CITY_NAME);
 
-    printf("\nlon: %0.2f lat: %0.2f\n", w->lon, w->lat);
     printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure, w->humidity);
-    printf("visibility %u wind_speed: %0.2f\n", w->visibility, w->wind_speed);
+    printf("visibility %0.2f wind_speed: %0.2f\n", w->visibility, w->wind_speed);
     printf("sunrise: %ld | sunset: %ld\n", (long) w->sunrise, (long) w->sunset);
     printf("city %s\n", w->city);
     printf("weather: %s desc: %s\n", w->main, w->desc);

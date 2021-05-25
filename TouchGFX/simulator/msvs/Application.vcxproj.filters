@@ -160,17 +160,29 @@
     <Filter Include="Header Files\generated\gui_generated\common">
       <UniqueIdentifier>6528B3D7-CB39-6790-9589-703EA2400EE4</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\gui\mainview_screen">
-      <UniqueIdentifier>D6B46DFA-DFC9-EB9E-B1AD-C174E3D73DC0</UniqueIdentifier>
+    <Filter Include="Header Files\gui\main_screen">
+      <UniqueIdentifier>9A11456C-8559-66EA-A228-847BCCFB1960</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\gui\mainview_screen">
-      <UniqueIdentifier>3D126788-5055-D7AB-06F7-080604CB6C3E</UniqueIdentifier>
+    <Filter Include="Source Files\gui\main_screen">
+      <UniqueIdentifier>A7C624E6-7149-1AD8-E8B6-218C7AEAD605</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\generated\gui_generated\mainview_screen">
-      <UniqueIdentifier>A9FB125C-9981-CE01-3186-767B4FB96C36</UniqueIdentifier>
+    <Filter Include="Header Files\generated\gui_generated\main_screen">
+      <UniqueIdentifier>2920216C-7CBF-3B9F-0966-2D60B39B2895</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\generated\gui_generated\mainview_screen">
-      <UniqueIdentifier>69B4D125-8883-F2FF-3DA6-0C879CD29C62</UniqueIdentifier>
+    <Filter Include="Source Files\generated\gui_generated\main_screen">
+      <UniqueIdentifier>536F6754-0583-B160-3A4F-B91E736A9D76</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\keyboard_screen">
+      <UniqueIdentifier>61E0DC5E-A499-3CEA-0651-F516C9318404</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\keyboard_screen">
+      <UniqueIdentifier>A1464B46-2058-15B9-D487-FDA04CC61DE5</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\keyboard_screen">
+      <UniqueIdentifier>A4308326-509D-34BA-F445-222A6AB7BC92</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\keyboard_screen">
+      <UniqueIdentifier>5BC9B7B6-E6EB-93FF-FE8F-068ABDF42F50</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -201,14 +213,26 @@
     <ClCompile Include="..\..\gui\src\model\Model.cpp">
       <Filter>Source Files\gui\model</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\mainview_screen\MainViewPresenter.cpp">
-      <Filter>Source Files\gui\mainview_screen</Filter>
+    <ClCompile Include="..\..\gui\src\common\CustomKeyboard.cpp">
+      <Filter>Source Files\gui\common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\gui\src\mainview_screen\MainViewView.cpp">
-      <Filter>Source Files\gui\mainview_screen</Filter>
+    <ClCompile Include="..\..\gui\src\main_screen\MainPresenter.cpp">
+      <Filter>Source Files\gui\main_screen</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\generated\gui_generated\src\mainview_screen\MainViewViewBase.cpp">
-      <Filter>Source Files\generated\gui_generated\mainview_screen</Filter>
+    <ClCompile Include="..\..\gui\src\main_screen\MainView.cpp">
+      <Filter>Source Files\gui\main_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\main_screen\MainViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\main_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\keyboard_screen\KeyboardPresenter.cpp">
+      <Filter>Source Files\gui\keyboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\keyboard_screen\KeyboardView.cpp">
+      <Filter>Source Files\gui\keyboard_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\keyboard_screen\KeyboardViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\keyboard_screen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -643,14 +667,32 @@
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\common\SimConstants.hpp">
       <Filter>Header Files\generated\gui_generated\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\mainview_screen\MainViewPresenter.hpp">
-      <Filter>Header Files\gui\mainview_screen</Filter>
+    <ClInclude Include="..\..\gui\include\gui\common\CustomKeyboard.hpp">
+      <Filter>Header Files\gui\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\gui\include\gui\mainview_screen\MainViewView.hpp">
-      <Filter>Header Files\gui\mainview_screen</Filter>
+    <ClInclude Include="..\..\gui\include\gui\common\KeyboardKeyMapping.hpp">
+      <Filter>Header Files\gui\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\mainview_screen\MainViewViewBase.hpp">
-      <Filter>Header Files\generated\gui_generated\mainview_screen</Filter>
+    <ClInclude Include="..\..\gui\include\gui\common\KeyboardLayout.hpp">
+      <Filter>Header Files\gui\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\MainPresenter.hpp">
+      <Filter>Header Files\gui\main_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\main_screen\MainView.hpp">
+      <Filter>Header Files\gui\main_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\main_screen\MainViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\main_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\keyboard_screen\KeyboardPresenter.hpp">
+      <Filter>Header Files\gui\keyboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\keyboard_screen\KeyboardView.hpp">
+      <Filter>Header Files\gui\keyboard_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\keyboard_screen\KeyboardViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\keyboard_screen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

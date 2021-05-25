@@ -9,13 +9,21 @@ extern touchgfx::GeneratedFont& getFont_verdanab_26_4bpp();
 extern touchgfx::GeneratedFont& getFont_verdanab_28_4bpp();
 extern touchgfx::GeneratedFont& getFont_verdana_25_4bpp();
 extern touchgfx::GeneratedFont& getFont_verdana_20_4bpp();
+extern touchgfx::GeneratedFont& getFont_RobotoCondensed_Regular_28_4bpp();
+extern touchgfx::GeneratedFont& getFont_RobotoCondensed_Regular_20_4bpp();
+extern touchgfx::GeneratedFont& getFont_RobotoCondensed_Regular_24_4bpp();
+extern touchgfx::GeneratedFont& getFont_verdana_10_4bpp();
 
 const touchgfx::Font* touchgfx_fonts[] =
 {
     &(getFont_verdanab_26_4bpp()),
     &(getFont_verdanab_28_4bpp()),
     &(getFont_verdana_25_4bpp()),
-    &(getFont_verdana_20_4bpp())
+    &(getFont_verdana_20_4bpp()),
+    &(getFont_RobotoCondensed_Regular_28_4bpp()),
+    &(getFont_RobotoCondensed_Regular_20_4bpp()),
+    &(getFont_RobotoCondensed_Regular_24_4bpp()),
+    &(getFont_verdana_10_4bpp())
 };
 
 extern const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[];
@@ -30,7 +38,14 @@ const touchgfx::TypedText::TypedTextData typedText_database_DEFAULT[] TEXT_LOCAT
     { 2, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },
     { 2, touchgfx::RIGHT, touchgfx::TEXT_DIRECTION_LTR },
     { 3, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
-    { 2, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR }
+    { 2, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 4, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 6, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 6, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 0, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR },
+    { 7, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 7, touchgfx::CENTER, touchgfx::TEXT_DIRECTION_LTR },
+    { 3, touchgfx::LEFT, touchgfx::TEXT_DIRECTION_LTR }
 };
 
 TEXT_LOCATION_FLASH_PRAGMA
@@ -78,6 +93,18 @@ void resetFont(touchgfx::FontId fontId)
         break;
     case 3:
         touchgfx_fonts[3] = &(getFont_verdana_20_4bpp());
+        break;
+    case 4:
+        touchgfx_fonts[4] = &(getFont_RobotoCondensed_Regular_28_4bpp());
+        break;
+    case 5:
+        touchgfx_fonts[5] = &(getFont_RobotoCondensed_Regular_20_4bpp());
+        break;
+    case 6:
+        touchgfx_fonts[6] = &(getFont_RobotoCondensed_Regular_24_4bpp());
+        break;
+    case 7:
+        touchgfx_fonts[7] = &(getFont_verdana_10_4bpp());
         break;
     }
 }

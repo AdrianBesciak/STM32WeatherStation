@@ -18,7 +18,6 @@ constexpr uint32_t MAX_CITY_NAME =          64;
 constexpr uint32_t MAX_MAIN_NAME =          64;
 
 typedef struct weather_t {
-    double lon, lat;                            // coords
     double temperature;                         // in celsius
     double feels_like;                          // in celsius
     uint32_t pressure;                          // hPa
