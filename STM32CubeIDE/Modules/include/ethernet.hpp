@@ -1,20 +1,21 @@
 #pragma once
 
-#ifdef __cplusplus
+#if defined __cplusplus
 extern "C" {
 #endif
 
-
-#include "FreeRTOS.h"
 #include <api.h>
 #include <string.h>
 #include <sockets.h>
+#include "FreeRTOS.h"
+#include "task.h"
+#include <stdint.h>
+
+#include "parson.h"
 #include "lwip.h"
-#include "cmsis_os.h"
 
-_Noreturn void internetConnectionThread(void * arguments);
+void updateCityName(const char *newName);
 
-
-#ifdef __cplusplus
+#if defined __cplusplus
 }
 #endif

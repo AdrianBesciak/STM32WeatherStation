@@ -573,8 +573,8 @@
                     "AutoSize": false,
                     "LineSpacing": 0,
                     "Name": "cityNameFieldLabel",
-                    "X": 30,
-                    "Y": 89,
+                    "X": 28,
+                    "Y": 26,
                     "Width": 115,
                     "Height": 34,
                     "Visible": true,
@@ -622,8 +622,8 @@
                       }
                     ],
                     "Name": "inputButton",
-                    "X": 148,
-                    "Y": 81,
+                    "X": 156,
+                    "Y": 21,
                     "Width": 290,
                     "Height": 50,
                     "Visible": true,
@@ -651,8 +651,8 @@
                       "BufferSize": 64
                     },
                     "Name": "inputField",
-                    "X": 157,
-                    "Y": 93,
+                    "X": 165,
+                    "Y": 30,
                     "Width": 273,
                     "Height": 30,
                     "Visible": true,
@@ -681,10 +681,62 @@
                     "TextRotation": "0",
                     "Style": "Style4",
                     "Name": "checkWeatherButton",
-                    "X": 155,
-                    "Y": 142,
+                    "X": 156,
+                    "Y": 85,
                     "Width": 170,
                     "Height": 60,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "SingleUseId16",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Name": "statusText",
+                    "X": 28,
+                    "Y": 167,
+                    "Width": 115,
+                    "Height": 34,
+                    "Visible": true,
+                    "LockPosition": false,
+                    "Draggable": false,
+                    "Clickable": false,
+                    "Fadeable": false,
+                    "Moveable": false
+                  },
+                  {
+                    "Type": "TextArea",
+                    "TextId": "weatherDesc",
+                    "TextRotation": "0",
+                    "Color": {
+                      "Red": 0,
+                      "Green": 0,
+                      "Blue": 0
+                    },
+                    "Alpha": 255,
+                    "AutoSize": false,
+                    "LineSpacing": 0,
+                    "Wildcard1": {
+                      "UseBuffer": true,
+                      "BufferSize": 64
+                    },
+                    "Name": "statusTextArea",
+                    "X": 143,
+                    "Y": 172,
+                    "Width": 329,
+                    "Height": 63,
                     "Visible": true,
                     "LockPosition": false,
                     "Draggable": false,
@@ -1209,6 +1261,10 @@
       },
       {
         "TextEntryId": "SingleUseId14",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId16",
         "IsResource": false
       }
     ],

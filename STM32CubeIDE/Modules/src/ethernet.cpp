@@ -1,9 +1,12 @@
-#include "../include/ethernet.hpp"
-#include "../include/weather.hpp"
-#include "task.h"
-#include "parson.h"
+#include "ethernet.hpp"
+#include "weather.hpp"
+
 
 extern struct netif gnetif;
+constexpr uint32_t CITY_NAME_BUFFEL_LEN = 0x20;
+static char cityNameBuffer[CITY_NAME_BUFFEL_LEN] = {};
+static char cityNameBufferEscaped[CITY_NAME_BUFFEL_LEN * 3 + 1];
+extern TaskHandle_t internetTask;
 
 void dhcp_get_address() {
     struct dhcp *dhcp = netif_dhcp_data(&gnetif);
@@ -13,6 +16,29 @@ void dhcp_get_address() {
     } while (dhcp->state != 0x0A);
 
     printf("Got IP addr: %s\n", ipaddr_ntoa(&gnetif.ip_addr));
+}
+
+void urlencode(const char* originalText)
+{
+    // allocate memory for the worst possible case (all characters need to be encoded)
+    memset(cityNameBufferEscaped, 0, sizeof(cityNameBufferEscaped));
+
+    const char *hex = "0123456789abcdef";
+
+    int pos = 0;
+    size_t originalLen = strlen(originalText);
+    for (size_t i = 0; i < originalLen; i++) {
+        if (('a' <= originalText[i] && originalText[i] <= 'z')
+            || ('A' <= originalText[i] && originalText[i] <= 'Z')
+            || ('0' <= originalText[i] && originalText[i] <= '9')) {
+            cityNameBufferEscaped[pos++] = originalText[i];
+        } else {
+            cityNameBufferEscaped[pos++] = '%';
+            cityNameBufferEscaped[pos++] = hex[originalText[i] >> 4];
+            cityNameBufferEscaped[pos++] = hex[originalText[i] & 15];
+        }
+    }
+    cityNameBufferEscaped[pos] = '\0';
 }
 
 //TODO: handle errors (display on screen)
@@ -56,7 +82,8 @@ void parse_OWM_data(const char *data) {
     strncpy(w->desc, weather_description, MAX_DESCRIPTION_LEN);
     strncpy(w->city, cityName, MAX_CITY_NAME);
 
-    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure, w->humidity);
+    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure,
+           w->humidity);
     printf("visibility %0.2f wind_speed: %0.2f\n", w->visibility, w->wind_speed);
     printf("sunrise: %ld | sunset: %ld\n", (long) w->sunrise, (long) w->sunset);
     printf("city %s\n", w->city);
@@ -64,16 +91,33 @@ void parse_OWM_data(const char *data) {
     printf("-----------------------------------------\n");
 }
 
-void cleanup_socket(int sock){
+void cleanup_socket(int sock) {
     shutdown(sock, SHUT_RDWR);
     close(sock);
 }
 
-void get_OWM_data() {
-    parse_OWM_data(
-            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"ąłżźćsdasadd aasd asd\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temp\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
-    );
-    return;
+int get_OWM_data(const char *location) {
+    if(strlen(location) == 0){
+        printf("[get_OWM_data] Empty location\n");
+        return 1;
+    }
+
+    constexpr int RECV_BUFFER_SIZE = 1'600;
+    static char recv_buffer[RECV_BUFFER_SIZE];
+    static char url[0x100];
+    urlencode(location);
+
+    const char *firstPart = "GET http://api.openweathermap.org/data/2.5/weather?q=";
+    const char *secondPart = "&units=metric&lang=pl&appid=839d6df972338bb98ae9a6dbf710ad81\r\n\r\n";
+
+    snprintf(url, 0x100, "%s%s%s", firstPart, cityNameBufferEscaped, secondPart);
+    printf("Getting data for %s\n", location);
+    printf("%s", url);
+
+//    parse_OWM_data(
+//            "{\"coord\":{\"lon\":19.9167,\"lat\":50.0833},\"weather\":[{\"id\":800,\"main\":\"Clear\",\"description\":\"ąłżźćsdasadd aasd asd\",\"icon\":\"01d\"}],\"base\":\"stations\",\"main\":{\"temp\":16.48,\"feels_like\":15.85,\"temp_min\":15.84,\"temp_max\":18.26,\"pressure\":1021,\"humidity\":64},\"visibility\":10000,\"wind\":{\"speed\":0.45,\"deg\":134,\"gust\":3.13},\"clouds\":{\"all\":0},\"dt\":1621848228,\"sys\":{\"type\":2,\"id\":2009211,\"country\":\"PL\",\"sunrise\":1621824186,\"sunset\":1621881095},\"timezone\":7200,\"id\":3094802,\"name\":\"Kraków\",\"cod\":200}"
+//    );
+//    return;
 
 
     ip4_addr_t serverIP;
@@ -81,12 +125,10 @@ void get_OWM_data() {
 
     if (netconn_gethostbyname("api.openweathermap.org", &serverIP) != ERR_OK) {
         printf("Error getting weather server IP address\n");
-        return;
+        return 2;
     }
 
-    printf("Received server IP: %s\n", ipaddr_ntoa(&serverIP));
-
-    sockaddr_in tcp_server {.sin_family = AF_INET, .sin_port = htons(serverPort)};
+    sockaddr_in tcp_server{.sin_family = AF_INET, .sin_port = htons(serverPort)};
     char serverIPString[16];
     strcpy(serverIPString, ipaddr_ntoa(&serverIP));
 
@@ -96,50 +138,64 @@ void get_OWM_data() {
 
     if (connect(serverSocket, (struct sockaddr *) &tcp_server, sizeof(tcp_server)) != 0) {
         printf("Error connecting to the server\n");
-        return;
+        return 3;
     }
+
     vTaskDelay(1'000);
 
-    constexpr int RECV_BUFFER_SIZE = 1'600;
-    static char recv_buffer[RECV_BUFFER_SIZE];
-
-    const char *uri = "GET http://api.openweathermap.org/data/2.5/weather?q=Krakow&units=metric&lang=pl&appid=839d6df972338bb98ae9a6dbf710ad81\r\n\r\n";;
-
-    if (send(serverSocket, uri, strlen(uri), 0) < 0) {
+    if (send(serverSocket, url, strlen(url), 0) < 0) {
         printf("Error sending URI)\n");
-        return;
+        return 4;
     }
 
     vTaskDelay(1'000);
 
-    printf("\nWaiting for response from the server\n");
     int receivedCharacters = recv(serverSocket, recv_buffer, RECV_BUFFER_SIZE, 0);
     if (receivedCharacters < 0) {
         printf("Error receiving message\n");
         cleanup_socket(serverSocket);
-        return;
+        return 5;
     }
     if (receivedCharacters == 0) {
         printf("Received empty response\n");
         cleanup_socket(serverSocket);
-        return;
+        return 6;
     }
 
     cleanup_socket(serverSocket);
     parse_OWM_data(recv_buffer);
+    return 0;
 }
 
+void updateCityName(const char *newName) {
+    strncpy(cityNameBuffer, newName, CITY_NAME_BUFFEL_LEN);
+    xTaskAbortDelay(internetTask);     //Wake up task immediately
+}
+
+void clearStructure(){
+    memset(&weatherForecast, 0, sizeof(weather_t));
+    weatherForecast.error = EMPTY_LOCATION;
+}
+
+extern "C"
+[[noreturn]]
 void internetConnectionThread(void *arguments) {
-    const char *defaultCity = "Krakow";
-
-    MX_LWIP_Init();
-
     printf("Internet Connection Thread started\n");
+
+    clearStructure();
+    MX_LWIP_Init();
     dhcp_get_address();
 
     while (true) {
-//        printf("Internet Connection Thread infinite loop\n");
-        get_OWM_data();
-        vTaskDelay(30'000);
+        weatherForecast.error = DOWNLOADING;
+        int res = get_OWM_data(cityNameBuffer);
+        if(res){
+            clearStructure();
+        }
+        weatherForecast.error = static_cast<Weather_Error_t>(res);
+
+        vTaskDelay(15'000);
+        printf("After vTaskDelay\n");
     }
 }
+

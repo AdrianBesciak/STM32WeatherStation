@@ -80,6 +80,8 @@ protected:
     touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > inputButton;
     touchgfx::TextAreaWithOneWildcard inputField;
     touchgfx::ButtonWithLabel checkWeatherButton;
+    touchgfx::TextArea statusText;
+    touchgfx::TextAreaWithOneWildcard statusTextArea;
     touchgfx::Container rightScreen;
     touchgfx::Image bgRight;
     touchgfx::ScalableImage temperatureIcon;
@@ -111,6 +113,8 @@ protected:
     touchgfx::Unicode::UnicodeChar descBuffer[DESC_SIZE];
     static const uint16_t INPUTFIELD_SIZE = 64;
     touchgfx::Unicode::UnicodeChar inputFieldBuffer[INPUTFIELD_SIZE];
+    static const uint16_t STATUSTEXTAREA_SIZE = 64;
+    touchgfx::Unicode::UnicodeChar statusTextAreaBuffer[STATUSTEXTAREA_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 32;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
     static const uint16_t SUNSETTEXT_SIZE = 16;

@@ -1,6 +1,18 @@
 #pragma once
+
 #include <stdint.h>
-#include <ctime>
+#include <time.h>
+
+typedef enum Weather_Error_t {
+    OK = 0,
+    EMPTY_LOCATION,
+    GETHOSTBYNAME,
+    CONNECT,
+    SEND,
+    RECV_FAIL,
+    RECV_EMPTY,
+    DOWNLOADING
+} Weather_Error_t;
 
 typedef enum Weather_t {
     CLEAR = 0,
@@ -31,8 +43,12 @@ typedef struct weather_t {
     char desc[MAX_DESCRIPTION_LEN];	            // in PL
     char city[MAX_CITY_NAME];                   // city name
 
+    Weather_Error_t error;
 } weather_t;
 
 extern weather_t weatherForecast;
 
 Weather_t translate_main_to_enum(const char * data);
+const char *error_to_string(Weather_Error_t err);
+
+

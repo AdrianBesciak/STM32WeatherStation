@@ -5,6 +5,7 @@
 #include <gui/main_screen/MainPresenter.hpp>
 #include <stdio.h>
 #include "weather.hpp"
+#include "ethernet.hpp"
 
 
 class MainView : public MainViewBase

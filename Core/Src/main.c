@@ -28,9 +28,10 @@
 #include <stm32746g_discovery_qspi.h>
 #include <stdio.h>
 #include "ansi.h"
+#include "FreeRTOS.h"
+#include "task.h"
 #include "lib_ds18b20.h"
-#include <task.h>
-#include <ethernet.hpp>
+#include "network_task.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,7 +90,6 @@ const osThreadAttr_t TouchGFXTask_attributes = {
         .stack_size = 4096 * 4
 };
 /* USER CODE BEGIN PV */
-
 static FMC_SDRAM_CommandTypeDef Command;
 /* USER CODE END PV */
 
@@ -203,24 +203,7 @@ int main(void) {
     /* USER CODE BEGIN RTOS_THREADS */
     /* add threads, ... */
     Ds18b20_Init();
-    BaseType_t internetConnectionTask = xTaskCreate(
-            internetConnectionThread,
-            "internetConnectionTask",
-            256 * 4,
-            NULL,
-            osPriorityNormal,
-            NULL
-    );
-
-    if (internetConnectionTask == pdPASS)
-        printf("Successfully created InternetConnectionTask\n");
-    else if (internetConnectionTask == errCOULD_NOT_ALLOCATE_REQUIRED_MEMORY)
-        printf("Allocation memory error during creating internetConnectionTask\n");
-    else
-        printf("Error creating internetConnectionTask\n");
-
-
-
+    Network_Task_Init();
     /* USER CODE END RTOS_THREADS */
 
     /* USER CODE BEGIN RTOS_EVENTS */

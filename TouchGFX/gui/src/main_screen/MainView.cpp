@@ -7,6 +7,7 @@ MainView::MainView() : prevWeatherIcon(nullptr)
     desc.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
     currentTempText.setWideTextAction(touchgfx::WIDE_TEXT_WORDWRAP);
     checkWeatherButton.setTouchable(false);
+    statusTextArea.setWideTextAction(WIDE_TEXT_WORDWRAP);
 }
 
 void MainView::setupScreen()
@@ -59,6 +60,11 @@ void MainView::updateTexts(weather_t* w) {
 
     Unicode::snprintfFloat(visibilityTextBuffer, VISIBILITYTEXT_SIZE, "%2.2fkm", w->visibility);
     visibilityText.invalidate();
+
+//    if(weatherForecast.error != OK){
+        Unicode::fromUTF8(reinterpret_cast<const uint8_t *>(error_to_string(weatherForecast.error)), statusTextAreaBuffer, STATUSTEXTAREA_SIZE);
+        statusTextArea.invalidate();
+//    }
 }
 
 void MainView::updateWeather(weather_t* weather){
@@ -112,7 +118,9 @@ void MainView::on_screen_update() {
 }
 
 void MainView::get_new_weather() {
-    //TODO: get new data from API
+    uint8_t temp[MAX_CITY_NAME_LEN];
+    Unicode::toUTF8(inputFieldBuffer, temp, MAX_CITY_NAME_LEN);
+    updateCityName((char *) temp);
 }
 
 
