@@ -40,7 +40,7 @@ void urlencode(const char* originalText)
     cityNameBufferEscaped[pos] = '\0';
 }
 
-void parse_OWM_data(const char *data) {
+int parse_OWM_data(const char *data) {
     printf("parse_OWM_data. data length: %i\n", strlen(data));
 
     JSON_Value *jsonValue = json_parse_string(data);
@@ -80,12 +80,21 @@ void parse_OWM_data(const char *data) {
     strncpy(w->desc, weather_description, MAX_DESCRIPTION_LEN);
     strncpy(w->city, cityName, MAX_CITY_NAME);
 
+    if (strcmp(json_object_get_string(jsonObject, "message"), "city not found") == 0) {
+    	const char * city_not_found_message = "Nie znaleziono miasta";
+    	printf("$s\n", city_not_found_message);
+    	strncpy(w->desc, city_not_found_message, strlen(city_not_found_message) + 1);
+    	strncpy(w->city, "N/N", 4);
+    	return NO_CITY;
+    }
+
 //    printf("temp: %0.2f feels: %0.2f pressure: %u humidity: %u\n", w->temperature, w->feels_like, w->pressure, w->humidity);
 //    printf("visibility %0.2f wind_speed: %0.2f\n", w->visibility, w->wind_speed);
 //    printf("sunrise: %ld | sunset: %ld\n", (long) w->sunrise, (long) w->sunset);
 //    printf("city %s\n", w->city);
 //    printf("weather: %s desc: %s\n", w->main, w->desc);
 //    printf("-----------------------------------------\n");
+    return 0;
 }
 
 void cleanup_socket(int sock) {
@@ -159,8 +168,7 @@ int get_OWM_data(const char *location) {
     }
 
     cleanup_socket(serverSocket);
-    parse_OWM_data(recv_buffer);
-    return 0;
+    return parse_OWM_data(recv_buffer);
 }
 
 void clearStructure(){

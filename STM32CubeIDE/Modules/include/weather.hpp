@@ -11,7 +11,8 @@ typedef enum Weather_Error_t {
     SEND,
     RECV_FAIL,
     RECV_EMPTY,
-    DOWNLOADING
+    DOWNLOADING,
+	NO_CITY
 } Weather_Error_t;
 
 typedef enum Weather_t {
