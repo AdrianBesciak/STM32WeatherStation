@@ -14,8 +14,8 @@ void mockData() {
     weatherForecast.humidity = (weatherForecast.humidity + 1) % 100;
     weatherForecast.pressure++;
     weatherForecast.wind_speed += 0.1;
-    weatherForecast.sunset++;
-    weatherForecast.sunrise++;
+    weatherForecast.sunset += 2137;
+    weatherForecast.sunrise += 1337;
     weatherForecast.visibility += 0.1;
 
 //    weatherForecast.error = static_cast<Weather_Error_t>((weatherForecast.error + 1) % (RECV_EMPTY + 1));
