@@ -35,7 +35,7 @@ std::map<Weather_Error_t, const char *> errorTranslationMap = {
         {RECV_FAIL,      "Nie udalo sie odebrac danych"},
         {RECV_EMPTY,     "Serwer nie zwrocil wynikow"},
         {DOWNLOADING,    "Pobieram..."},
-		{NO_CITY,		 "Miasta nie znaleziono"}
+        {NO_CITY,        "Nie znaleziono miasta"}
 };
 
 const char *error_to_string(Weather_Error_t err) {

@@ -82,7 +82,7 @@ int parse_OWM_data(const char *data) {
 
     if (strcmp(json_object_get_string(jsonObject, "message"), "city not found") == 0) {
     	const char * city_not_found_message = "Nie znaleziono miasta";
-    	printf("$s\n", city_not_found_message);
+    	printf("%s\n", city_not_found_message);
     	strncpy(w->desc, city_not_found_message, strlen(city_not_found_message) + 1);
     	strncpy(w->city, "N/N", 4);
     	return NO_CITY;
