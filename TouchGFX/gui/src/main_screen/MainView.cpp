@@ -58,7 +58,7 @@ void MainView::updateTexts(weather_t* w) {
     Unicode::strncpy(sunsetTextBuffer, tempBuffer, SUNSETTEXT_SIZE);
     sunsetText.invalidate();
 
-    Unicode::snprintfFloat(visibilityTextBuffer, VISIBILITYTEXT_SIZE, "%2.2fkm", w->visibility);
+    Unicode::snprintfFloat(visibilityTextBuffer, VISIBILITYTEXT_SIZE, "%2.1fkm", w->visibility);
     visibilityText.invalidate();
 
     updateStatusText(w);
