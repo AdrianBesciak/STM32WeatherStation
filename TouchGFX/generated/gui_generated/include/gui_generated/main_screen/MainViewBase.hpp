@@ -11,11 +11,11 @@
 #include <touchgfx/containers/SwipeContainer.hpp>
 #include <touchgfx/containers/Container.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/ScalableImage.hpp>
-#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
+#include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/widgets/ButtonWithLabel.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
 
 class MainViewBase : public touchgfx::View<MainPresenter>
 {
@@ -47,8 +47,16 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::SwipeContainer swipeContainer1;
-    touchgfx::Container leftScreen;
+    touchgfx::Container centerScreen;
     touchgfx::Image bgLeft;
+    touchgfx::TextArea cityNameFieldLabel;
+    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > inputButton;
+    touchgfx::TextAreaWithOneWildcard inputField;
+    touchgfx::ButtonWithLabel checkWeatherButton;
+    touchgfx::TextArea statusText;
+    touchgfx::TextAreaWithOneWildcard statusTextArea;
+    touchgfx::Container leftScreen;
+    touchgfx::Image bgCenter;
     touchgfx::Image cloud;
     touchgfx::Image drizzle;
     touchgfx::Image full_sun;
@@ -74,14 +82,6 @@ protected:
     touchgfx::TextAreaWithOneWildcard windSpeed;
     touchgfx::TextAreaWithOneWildcard citynametext;
     touchgfx::TextAreaWithOneWildcard desc;
-    touchgfx::Container centerScreen;
-    touchgfx::Image bgCenter;
-    touchgfx::TextArea cityNameFieldLabel;
-    touchgfx::BoxWithBorderButtonStyle< touchgfx::ClickButtonTrigger > inputButton;
-    touchgfx::TextAreaWithOneWildcard inputField;
-    touchgfx::ButtonWithLabel checkWeatherButton;
-    touchgfx::TextArea statusText;
-    touchgfx::TextAreaWithOneWildcard statusTextArea;
     touchgfx::Container rightScreen;
     touchgfx::Image bgRight;
     touchgfx::ScalableImage temperatureIcon;
@@ -97,6 +97,10 @@ protected:
     /*
      * Wildcard Buffers
      */
+    static const uint16_t INPUTFIELD_SIZE = 64;
+    touchgfx::Unicode::UnicodeChar inputFieldBuffer[INPUTFIELD_SIZE];
+    static const uint16_t STATUSTEXTAREA_SIZE = 64;
+    touchgfx::Unicode::UnicodeChar statusTextAreaBuffer[STATUSTEXTAREA_SIZE];
     static const uint16_t CURRENTOWMTEMP_SIZE = 16;
     touchgfx::Unicode::UnicodeChar currentOWMtempBuffer[CURRENTOWMTEMP_SIZE];
     static const uint16_t CURRENTOWMFEELS_SIZE = 16;
@@ -111,10 +115,6 @@ protected:
     touchgfx::Unicode::UnicodeChar citynametextBuffer[CITYNAMETEXT_SIZE];
     static const uint16_t DESC_SIZE = 64;
     touchgfx::Unicode::UnicodeChar descBuffer[DESC_SIZE];
-    static const uint16_t INPUTFIELD_SIZE = 64;
-    touchgfx::Unicode::UnicodeChar inputFieldBuffer[INPUTFIELD_SIZE];
-    static const uint16_t STATUSTEXTAREA_SIZE = 64;
-    touchgfx::Unicode::UnicodeChar statusTextAreaBuffer[STATUSTEXTAREA_SIZE];
     static const uint16_t CURRENTTEMPVALUE_SIZE = 32;
     touchgfx::Unicode::UnicodeChar currentTempValueBuffer[CURRENTTEMPVALUE_SIZE];
     static const uint16_t SUNSETTEXT_SIZE = 16;

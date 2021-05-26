@@ -61,9 +61,14 @@ void MainView::updateTexts(weather_t* w) {
     Unicode::snprintfFloat(visibilityTextBuffer, VISIBILITYTEXT_SIZE, "%2.2fkm", w->visibility);
     visibilityText.invalidate();
 
+    updateStatusText(w);
+}
+
+void MainView::updateStatusText(weather_t* w){
     if(weatherForecast.error == EMPTY_LOCATION && Unicode::strlen(statusTextAreaBuffer) > 0){
+        Unicode::snprintf(statusTextAreaBuffer, STATUSTEXTAREA_SIZE, "");
     }else{
-        Unicode::fromUTF8(reinterpret_cast<const uint8_t *>(error_to_string(weatherForecast.error)), statusTextAreaBuffer, STATUSTEXTAREA_SIZE);
+        Unicode::fromUTF8(reinterpret_cast<const uint8_t *>(error_to_string(w->error)), statusTextAreaBuffer, STATUSTEXTAREA_SIZE);
         statusTextArea.invalidate();
     }
 }
@@ -116,6 +121,7 @@ void MainView::on_screen_update() {
         checkWeatherButton.setTouchable(false);
     }
     checkWeatherButton.invalidate();
+    updateStatusText(&weatherForecast);
 }
 
 void MainView::get_new_weather() {

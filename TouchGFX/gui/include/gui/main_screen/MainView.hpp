@@ -24,8 +24,8 @@ public:
     virtual void updateWeather(weather_t* weather);
 
     void on_screen_update() override;
-
     void get_new_weather() override;
+    void updateStatusText(weather_t* w);
 
     touchgfx::Image* selectIcon(Weather_t status);
 protected:

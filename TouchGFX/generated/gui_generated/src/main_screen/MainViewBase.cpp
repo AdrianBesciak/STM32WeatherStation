@@ -20,12 +20,63 @@ MainViewBase::MainViewBase() :
     swipeContainer1.setSwipeCutoff(50);
     swipeContainer1.setEndSwipeElasticWidth(0);
 
-    leftScreen.setWidth(480);
-    leftScreen.setHeight(272);
+    centerScreen.setWidth(480);
+    centerScreen.setHeight(272);
 
     bgLeft.setXY(0, 0);
     bgLeft.setBitmap(touchgfx::Bitmap(BITMAP_BGLEFT_ID));
-    leftScreen.add(bgLeft);
+    centerScreen.add(bgLeft);
+
+    cityNameFieldLabel.setPosition(28, 26, 115, 34);
+    cityNameFieldLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    cityNameFieldLabel.setLinespacing(0);
+    cityNameFieldLabel.setTypedText(touchgfx::TypedText(T_SINGLEUSEID12));
+    centerScreen.add(cityNameFieldLabel);
+
+    inputButton.setBoxWithBorderPosition(0, 0, 290, 50);
+    inputButton.setBorderSize(1);
+    inputButton.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255), touchgfx::Color::getColorFrom24BitRGB(129, 135, 137), touchgfx::Color::getColorFrom24BitRGB(0, 0, 0), touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    inputButton.setPosition(156, 21, 290, 50);
+    inputButton.setAction(flexButtonCallback);
+    centerScreen.add(inputButton);
+
+    inputField.setPosition(165, 30, 273, 30);
+    inputField.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    inputField.setLinespacing(0);
+    Unicode::snprintf(inputFieldBuffer, INPUTFIELD_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID13).getText());
+    inputField.setWildcard(inputFieldBuffer);
+    inputField.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
+    centerScreen.add(inputField);
+
+    checkWeatherButton.setXY(156, 85);
+    checkWeatherButton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_PRESSED_ID));
+    checkWeatherButton.setLabelText(touchgfx::TypedText(T_SINGLEUSEID14));
+    checkWeatherButton.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    checkWeatherButton.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
+    checkWeatherButton.setAction(buttonCallback);
+    centerScreen.add(checkWeatherButton);
+
+    statusText.setPosition(28, 167, 115, 34);
+    statusText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    statusText.setLinespacing(0);
+    statusText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID16));
+    centerScreen.add(statusText);
+
+    statusTextArea.setPosition(143, 172, 329, 63);
+    statusTextArea.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
+    statusTextArea.setLinespacing(0);
+    statusTextAreaBuffer[0] = 0;
+    statusTextArea.setWildcard(statusTextAreaBuffer);
+    statusTextArea.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
+    centerScreen.add(statusTextArea);
+    swipeContainer1.add(centerScreen);
+
+    leftScreen.setWidth(480);
+    leftScreen.setHeight(272);
+
+    bgCenter.setXY(0, 0);
+    bgCenter.setBitmap(touchgfx::Bitmap(BITMAP_BGCENTER_ID));
+    leftScreen.add(bgCenter);
 
     cloud.setXY(348, 44);
     cloud.setVisible(false);
@@ -176,57 +227,6 @@ MainViewBase::MainViewBase() :
     leftScreen.add(desc);
     swipeContainer1.add(leftScreen);
 
-    centerScreen.setWidth(480);
-    centerScreen.setHeight(272);
-
-    bgCenter.setXY(0, 0);
-    bgCenter.setBitmap(touchgfx::Bitmap(BITMAP_BGCENTER_ID));
-    centerScreen.add(bgCenter);
-
-    cityNameFieldLabel.setPosition(28, 26, 115, 34);
-    cityNameFieldLabel.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    cityNameFieldLabel.setLinespacing(0);
-    cityNameFieldLabel.setTypedText(touchgfx::TypedText(T_SINGLEUSEID12));
-    centerScreen.add(cityNameFieldLabel);
-
-    inputButton.setBoxWithBorderPosition(0, 0, 290, 50);
-    inputButton.setBorderSize(1);
-    inputButton.setBoxWithBorderColors(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255), touchgfx::Color::getColorFrom24BitRGB(129, 135, 137), touchgfx::Color::getColorFrom24BitRGB(0, 0, 0), touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    inputButton.setPosition(156, 21, 290, 50);
-    inputButton.setAction(flexButtonCallback);
-    centerScreen.add(inputButton);
-
-    inputField.setPosition(165, 30, 273, 30);
-    inputField.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    inputField.setLinespacing(0);
-    Unicode::snprintf(inputFieldBuffer, INPUTFIELD_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID13).getText());
-    inputField.setWildcard(inputFieldBuffer);
-    inputField.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
-    centerScreen.add(inputField);
-
-    checkWeatherButton.setXY(156, 85);
-    checkWeatherButton.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_PRESSED_ID));
-    checkWeatherButton.setLabelText(touchgfx::TypedText(T_SINGLEUSEID14));
-    checkWeatherButton.setLabelColor(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    checkWeatherButton.setLabelColorPressed(touchgfx::Color::getColorFrom24BitRGB(255, 255, 255));
-    checkWeatherButton.setAction(buttonCallback);
-    centerScreen.add(checkWeatherButton);
-
-    statusText.setPosition(28, 167, 115, 34);
-    statusText.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    statusText.setLinespacing(0);
-    statusText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID16));
-    centerScreen.add(statusText);
-
-    statusTextArea.setPosition(143, 172, 329, 63);
-    statusTextArea.setColor(touchgfx::Color::getColorFrom24BitRGB(0, 0, 0));
-    statusTextArea.setLinespacing(0);
-    statusTextAreaBuffer[0] = 0;
-    statusTextArea.setWildcard(statusTextAreaBuffer);
-    statusTextArea.setTypedText(touchgfx::TypedText(T_WEATHERDESC));
-    centerScreen.add(statusTextArea);
-    swipeContainer1.add(centerScreen);
-
     rightScreen.setWidth(480);
     rightScreen.setHeight(272);
 
@@ -292,7 +292,7 @@ MainViewBase::MainViewBase() :
     visibilityText.setTypedText(touchgfx::TypedText(T_TEMPOWM));
     rightScreen.add(visibilityText);
     swipeContainer1.add(rightScreen);
-    swipeContainer1.setSelectedPage(1);
+    swipeContainer1.setSelectedPage(0);
 
     add(__background);
     add(swipeContainer1);
